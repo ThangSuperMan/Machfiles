@@ -1,0 +1,89 @@
+# Support more colors for alacritty
+env:
+  TERM: xterm-256color
+
+window:
+
+  padding:
+    x: 20
+    y: 20
+
+  decorations: buttonless
+  opacity: 0.95
+  dynamic_title: false
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Liga SFMono Nerd Font
+    style: Regular
+  bold:
+    family: Liga SFMono Nerd Font
+    style: Bold
+  italic:
+    family: Liga SFMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: Liga SFMono Nerd Font
+    style: Bold Italic
+  size: 16.0
+  offset:
+    x: 1
+    y: 1
+  glyph_offset:
+    y: 1
+    x: 0
+  use_thin_strokes: false
+
+colors:
+
+  primary:
+    background: "#020202"
+    foreground: "#e0def4"
+
+  cursor:
+    text: "#2A2738"
+    cursor: "#4291FF"
+
+  vi_mode_cursor:
+    text: "#191724"
+    cursor: "#020202"
+
+  line_indicator:
+    foreground: None
+    background: None 
+
+  selection:
+    text: CellForeground
+    background: "#2A2738"
+
+  normal:
+    black: "#191724"
+    red: "#eb6f92"
+    green: "#5DA702"
+    yellow: "#f6c177"
+    blue: "#31748f"
+    magenta: "#c4a7e7"
+    cyan: "#ebbcba"
+    white: "#e0def4"
+   
+  bright:
+    black: "#6e6a86"
+    red: "#eb6f92"
+    green: "#9ccfd8"
+    yellow: "#f6c177"
+    blue: "#31748f"
+    magenta: "#c4a7e7"
+    cyan: "#ebbcba"
+    white: "#e0def4"
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: false
+  live_config_reload: true
+
+# key_bindings:
+#   - { key: N, mods: Super|Shift, action: alacritty --working-directory (pwd) }
