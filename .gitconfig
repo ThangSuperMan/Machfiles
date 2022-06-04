@@ -1,0 +1,10 @@
+[user]
+	email = thangjenny2002@gmail.com
+	name = thangsuperman
+
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	open = "!hub browse"
+	hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
