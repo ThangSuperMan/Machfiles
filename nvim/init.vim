@@ -1,6 +1,7 @@
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
@@ -19,6 +20,7 @@ if has("nvim")
   Plug 'kristijanhusak/defx-icons'
   Plug 'kristijanhusak/defx-git'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'glepnir/dashboard-nvim'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'norcalli/nvim-colorizer.lua'
@@ -76,6 +78,9 @@ set noswapfile
 
 " Copy to clipboard 
 set clipboard=unnamed
+
+" Add asterisks in block comments
+set formatoptions+=r
 
 "set up for plugin hexokinase to show color background of color code in js,
 "html, css file. Then we know how does it look like of the color
