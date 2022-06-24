@@ -14,24 +14,20 @@ nmap sv :vsplit<Return><C-w>w
 " Delete a word backwards
 nnoremap dw vb"_d
 
+nnoremap x "_x
+
 " Jump out the curly brakets and isnert after that
 inoremap <C-]> <C-o>A
 
 " Esc when state is insert mode
 inoremap <C-[> <Esc>
 
-" Delete all buffers
+" Close all buffers
 nmap ,d :bufdo bd
 
 " Scroll setup
 nnoremap <C-u> 10<C-u> 
 nnoremap <C-d> 10<C-d>
-
-
-" Plug 'svermeulen/vim-yoink'
-" Show yanks history
-map <space>y :Yanks 
-map <space>cy :ClearYanks 
 
 " Resize window
 nmap <space><left> <C-w><

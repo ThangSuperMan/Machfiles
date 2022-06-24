@@ -42,11 +42,14 @@ autocmd VimEnter * highlight CmpItemKindDefault ctermfg=1 guifg=#839496
 " Change color diagnostics of statusline
 autocmd VimEnter * highlight DiagnosticError ctermfg=1 guifg=#fd5d5d
 
-" Override color when working with golang project
-autocmd VimEnter * hi KeyWord ctermfg=2 guifg=#268bd2
-autocmd VimEnter * hi goImport ctermfg=2 guifg=#DC3C32
-autocmd VimEnter * hi goPackage ctermfg=2 guifg=#DC3C32
-autocmd VimEnter * hi goPointerOperator ctermfg=2 guifg=#DC3C32
+" " Override color when working with golang project
+" autocmd VimEnter * hi KeyWord ctermfg=2 guifg=#268bd2
+" autocmd VimEnter * hi goImport ctermfg=2 guifg=#DC3C32
+" autocmd VimEnter * hi goPackage ctermfg=2 guifg=#DC3C32
+" autocmd VimEnter * hi goPointerOperator ctermfg=2 guifg=#DC3C32
+
+" Defx_icons_go  xxx ctermfg=137 guifg=#F5C06F
+autocmd VimEnter * hi Defx_icons_go ctermfg=2 guifg=#689FB6
 
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/after/plugins/ts-autotag.vim
@@ -67,6 +70,8 @@ source ~/.config/nvim/after/plugins/defx.vim
 
 " Setting the color rot current line 
 set cursorline 
+
+set scrolloff=10
 
 set nowrap "No Wrap lines
 
