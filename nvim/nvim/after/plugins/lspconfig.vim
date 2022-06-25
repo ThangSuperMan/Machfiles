@@ -63,7 +63,9 @@ lua << EOF
           virtual_text = {
              spacing = 4,
             -- prefix = ' '
-          	 prefix = ''
+          	 -- prefix = ''
+          	 prefix = ''
+						 
           }
       }
     )

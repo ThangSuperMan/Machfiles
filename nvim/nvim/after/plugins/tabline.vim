@@ -17,7 +17,7 @@ function MyTabLine()
 
     "" the label is made by MyTabLabel()
     let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-
+    
     if i + 1 == tabpagenr()
       let s .= '%#TabLineSep#'
     elseif i + 2 == tabpagenr()
