@@ -34,33 +34,15 @@ lua << EOF
   nvim_lsp.cssls.setup {
     on_attach = on_attach;
     capabilities = capabilities,
+		filetypes = {"css", "scss"}
   }
-
-  nvim_lsp.cssmodules_ls.setup {
-    -- provide your on_attach to bind keymappings
-    on_attach = custom_on_attach,
-    -- optionally
-    init_options = {
-        camelCase = 'dashes',
-    },
-
-  nvim_lsp.cssmodules_ls.setup {
-    custom_on_attach = function (client)
-        -- avoid accepting `go-to-definition` responses from this LSP
-        client.resolved_capabilities.goto_definition = true
-        custom_on_attach(client)
-    end,
-  }
-}
 
 -- Setup html
-
       require'lspconfig'.html.setup {
             on_attach= on_attach,
             filetypes = { "html", "jsp", "ejs" },
             capabilities = capabilities,
       }
-
 -- Setup html
 
  -- Setup for css
@@ -79,6 +61,8 @@ lua << EOF
              spacing = 4,
             -- prefix = ' '
           	 prefix = ''
+          	 -- prefix = ''
+						 
           }
       }
     )

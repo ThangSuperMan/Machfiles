@@ -14,10 +14,7 @@ nmap sv :vsplit<Return><C-w>w
 " Delete a word backwards
 nnoremap dw vb"_d
 
-" Plug 'svermeulen/vim-yoink'
-" Show yanks history
-map <space>y :Yanks 
-map <space>cy :ClearYanks 
+nnoremap x "_x
 
 " Jump out the curly brakets and isnert after that
 inoremap <C-]> <C-o>A
@@ -25,9 +22,21 @@ inoremap <C-]> <C-o>A
 " Esc when state is insert mode
 inoremap <C-[> <Esc>
 
+" Esc and write file
+" inoremap ww <ESC>:w<cr>
+
+" Close all buffers
+nmap ,d :bufdo bd
+
 " Scroll setup
 nnoremap <C-u> 10<C-u> 
 nnoremap <C-d> 10<C-d>
+
+" Resize window
+nmap <space><left> <C-w><
+nmap <space><right> <C-w>>
+nmap <space><up> <C-w>+
+nmap <space><down> <C-w>-
 
 " Save some strokes
 " nnoremap ; :
@@ -43,7 +52,8 @@ nmap <C-t> :nohlsearch<CR>
 nnoremap va :%y+<CR>
 
 " Select all
-nmap <C-a> gg<S-v>G
+" nmap <C-a> gg<S-v>G
+nmap ,a gg<S-v>G
 
 "-----------------------------
 " Tabs

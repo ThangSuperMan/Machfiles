@@ -1,0 +1,59 @@
+snippet circle "cirle"
+width: $1;
+height: $1;
+border-radius: 50%;
+endsnippet
+
+snippet abs-top-left "position"
+position: absolute;
+top: 0;
+left: 0;
+endsnippet
+
+snippet flex-c "flex box center element"
+display: flex;
+align-items: center;
+justify-content: center;
+endsnippet
+
+snippet grid-c "grid box center element"
+display: grid;
+place-items: center; 
+endsnippet
+
+snippet abs-center "center element"
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+position: absolute;
+endsnippet
+
+snippet abs-centerx "center horizontol"
+left: 50%;
+transform: translateX(-50%);
+position: absolute;
+endsnippet
+
+snippet abs-centery "center vertical"
+top: 50%;
+transform: translateY(-50%);
+position: absolute;
+endsnippet
+
+snippet setup "setup default css, scss file"
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+ text-decoration: none;
+}
+endsnippet
+
+snippet @768 "Media screen and min width 768px"
+@media screen and (min-width: 1023px) {
+ $1
+} 
+endsnippet
