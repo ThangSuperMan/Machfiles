@@ -11,10 +11,23 @@ map sl <C-w>l
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
+" Close a single buffer
+nnoremap ,q :bd<CR>
+
 " Delete a word backwards
 nnoremap dw vb"_d
 
 nnoremap x "_x
+
+" Go to start or end of line easier
+nnoremap H ^
+xnoremap H ^
+nnoremap L g_
+xnoremap L g_
+
+" Yank from current cursor position to the end of the line (make it
+" consistent with the behavior of D, C)
+nnoremap Y y$
 
 " Jump out the curly brakets and isnert after that
 inoremap <C-]> <C-o>A
@@ -26,7 +39,9 @@ inoremap <C-[> <Esc>
 " inoremap ww <ESC>:w<cr>
 
 " Close all buffers
-nmap ,d :bufdo bd
+nmap <S-q> :bufdo bd<CR>
+
+nmap zz :ZZ<CR>
 
 " Scroll setup
 nnoremap <C-u> 10<C-u> 
@@ -45,8 +60,10 @@ nmap <space><down> <C-w>-
 nmap ,p "0p
 nmap ,P "0P
 
+nnoremap S :%s//g<Left><Left>
+
 " Turn off the hightlight
-nmap <C-t> :nohlsearch<CR>
+nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " Copy whole text in file
 nnoremap va :%y+<CR>

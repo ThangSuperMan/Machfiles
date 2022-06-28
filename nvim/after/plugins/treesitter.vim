@@ -13,8 +13,6 @@ require'nvim-treesitter.configs'.setup {
 	  "go",
 	 	"tsx",
     "html",
-		"css",
-		"scss",
   },
   autotag = {
     enable = true,

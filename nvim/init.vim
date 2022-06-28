@@ -10,6 +10,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/cmp-vsnip'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -20,21 +21,14 @@ if has("nvim")
   Plug 'kristijanhusak/defx-icons'
   Plug 'kristijanhusak/defx-git'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Plug 'glepnir/dashboard-nvim'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'windwp/nvim-ts-autotag'
   Plug 'sainnhe/everforest'
-  Plug 'LunarVim/darkplus.nvim'
-  Plug 'crispgm/nvim-tabline'
-  Plug 'LunarVim/Colorschemes'
-  "snippets
-  Plug 'honza/vim-snippets'
-  Plug 'SirVer/ultisnips'
+  Plug 'alvarosevilla95/luatab.nvim'
+  Plug 'akinsho/toggleterm.nvim'
 end
-
 
 " highlight syntax js, jsx, css, html5 https://github.com/sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
@@ -44,10 +38,14 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
+Plug 'sbdchd/neoformat'
 
-" autocmd VimEnter * highlight TabLineFill  guifg=#BB9597
-  " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597 guibg
-autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#2f383e guibg=#68B3F2
+" autocmd VimEnter * highlight TabLineFill  guifg=#91AA90 
+  " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597 
+" autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#2f383e guibg=#8097A7
+" autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#d4d4d4 guibg=#007acc
+" autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#d4d4d4
+" autocmd VimEnter * highlight TabLineFill  guifg=#d4d4d4
 
 autocmd VimEnter * highlight Visual ctermbg=52 guibg=#2083C6
 
@@ -56,28 +54,6 @@ autocmd VimEnter * highlight Visual ctermbg=52 guibg=#2083C6
 autocmd VimEnter * highlight Defx_filename_directory guifg=#7fbbb3
 autocmd VimEnter * highlight Defx_filename_root guifg=#A7C080
 autocmd VimEnter * highlight Defx_icon_directory_icon guifg=#E99B25
-autocmd VimEnter * highlight Defx_icon_opened_icon guifg=#E99B25
-
-
-" TabLine        xxx ctermfg=247 ctermbg=238 guifg=#9da9a0 guibg=#4a555b
-" Change the highlight color of cmp plug
-" autocmd VimEnter * highlight CmpItemKindDefault ctermfg=1 guifg=#839496
-
-" Change color diagnostics of statusline
-" autocmd VimEnter * highlight DiagnosticError ctermfg=1 guifg=#fd5d5d
-
-
-" " Override color when working with golang project
-" autocmd VimEnter * hi KeyWord ctermfg=2 guifg=#268bd2
-" autocmd VimEnter * hi goImport ctermfg=2 guifg=#DC3C32
-" autocmd VimEnter * hi goPackage ctermfg=2 guifg=#DC3C32
-" autocmd VimEnter * hi goPointerOperator ctermfg=2 guifg=#DC3C32
-
-" Defx_icons_go  xxx ctermfg=137 guifg=#F5C06F
-" autocmd VimEnter * hi Defx_icons_go ctermfg=2 guifg=#689FB6
-
-" Theme
-" source ~/.config/nvim/colors/darkplus.lua
 
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/after/plugins/ts-autotag.vim
@@ -85,17 +61,14 @@ source ~/.config/nvim/after/plugins/treesitter.vim
 source ~/.config/nvim/after/plugins/lspconfig.vim
 source ~/.config/nvim/after/plugins/language-servers.vim 
 source ~/.config/nvim/after/plugins/cmp.vim
-" source ~/.config/nvim/after/plugins/compe.vim
 source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
-" source ~/.config/nvim/after/plugins/coc.vim 
 source ~/.config/nvim/after/plugins/telescope.vim
-" source ~/.config/nvim/after/plugins/lualine.vim
 source ~/.config/nvim/after/plugins/lualine-new.vim
-source ~/.config/nvim/after/plugins/tabline-new.vim
+source ~/.config/nvim/after/plugins/luatab.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
 source ~/.config/nvim/after/plugins/defx.vim 
-source ~/.config/nvim/after/plugins/ultisnips.vim 
+source ~/.config/nvim/after/plugins/toggle-term.vim 
 
 set background=dark " or light if you want light mode
 let g:everforest_background = 'hard'
@@ -105,24 +78,35 @@ let g:everforest_background = 'hard'
 let g:everforest_better_performance = 1
 colorscheme everforest
 
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+" Always show tabs
+set showtabline=2
+
+" turn off the default mode of vim
+set noshowmode
+
+set cmdheight=1
+
+" allow use click
 set mouse=a
-set lazyredraw
+
+" always show statusline
 set laststatus=2
+
+" toggle spellcheck with ,s
+nmap <silent> <leader>s :set spell!<CR>
+
 set encoding=UTF-8
-
-" Setting the color for current line 
 set cursorline 
-" set ruler 
 set scrolloff=10
-
 set nowrap "No Wrap lines
-
-" set relativenumber
 set number
-" Auto have number of lines in ide
-" autocmd VimEnter * set number
 
-" Set no swapfile
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
 set noswapfile
 
 " Copy to clipboard 

@@ -1,11 +1,11 @@
 " Highlight
-autocmd VimEnter * highlight lualine_x_diagnostics_error_normal guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_insert guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_visual guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_replace guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_command guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_terminal guifg=#fd5d5d  
-autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_normal guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_insert guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_visual guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_replace guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_command guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_terminal guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d  
 
 " Fix error when using with everforest theme
 " autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2  
@@ -64,7 +64,7 @@ end
 lualine.setup {
   options = {
     icons_enabled = true,
-		  -- theme= 'solarized_dark',
+		theme= 'solarized_dark',
 		-- theme= 'catppuccin',
 		 --  theme= 'everforest',
 		 -- theme= 'gruvbox',
