@@ -7,6 +7,12 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
+" insert mode
+inoremap jk <ESC>
+inoremap ww <ESC>:w<cr>
+
+nnoremap <c-s> :w!<cr>
+
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
@@ -25,27 +31,26 @@ xnoremap H ^
 nnoremap L g_
 xnoremap L g_
 
+inoremap <silent> <c-l> <C-o>A
+
 " Yank from current cursor position to the end of the line (make it
 " consistent with the behavior of D, C)
 nnoremap Y y$
+
+nnoremap <leader>s :set scroll=10<Cr>
 
 " Jump out the curly brakets and isnert after that
 inoremap <C-]> <C-o>A
 
 " Esc when state is insert mode
-inoremap <C-[> <Esc>
-
-" Esc and write file
-" inoremap ww <ESC>:w<cr>
+" inoremap <C-[> <Esc>
 
 " Close all buffers
 nmap <S-q> :bufdo bd<CR>
 
-nmap zz :ZZ<CR>
-
 " Scroll setup
-nnoremap <C-u> 10<C-u> 
-nnoremap <C-d> 10<C-d>
+" nnoremap <C-u> 10<C-u> 
+" nnoremap <C-d> 10<C-d>
 
 " Resize window
 nmap <space><left> <C-w><

@@ -32,10 +32,12 @@ lua << EOF
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   nvim_lsp.cssls.setup {
-    on_attach = on_attach;
+		on_attach = on_attach,
     capabilities = capabilities,
 		filetypes = {"css", "scss"}
   }
+
+ -- Setup for css
 
 -- Setup html
       require'lspconfig'.html.setup {
@@ -45,7 +47,6 @@ lua << EOF
       }
 -- Setup html
 
- -- Setup for css
 
  nvim_lsp.tsserver.setup {
   on_attach = on_attach,

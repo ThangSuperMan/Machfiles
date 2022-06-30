@@ -1,4 +1,4 @@
-let g:coc_global_extensions = [ 'coc-go',  'coc-html',  'coc-prettier', 'coc-php']
+let g:coc_global_extensions = [ 'coc-prettier']
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -7,12 +7,8 @@ set encoding=utf-8
 " TextEdit might fail if hidden is not set.
 set hidden
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
 " Give more space for displaying messages.
-set cmdheight=1
+" set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.

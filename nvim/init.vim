@@ -5,6 +5,7 @@ Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
+  Plug 'xiyaowong/nvim-transparent'
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
@@ -12,6 +13,7 @@ if has("nvim")
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'onsails/lspkind-nvim'
+  " telescope
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -27,7 +29,8 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
   Plug 'sainnhe/everforest'
   Plug 'alvarosevilla95/luatab.nvim'
-  Plug 'akinsho/toggleterm.nvim'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+  Plug 'psliwka/vim-smoothie'
 end
 
 " highlight syntax js, jsx, css, html5 https://github.com/sheerun/vim-polyglot
@@ -38,7 +41,21 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-Plug 'sbdchd/neoformat'
+lua << EOF
+
+require("transparent").setup({
+  enable = true, -- boolean: enable transparent
+  extra_groups = { -- table/string: additional groups that should be cleared
+    -- In particular, when you set it to 'all', that means all available groups
+  },
+  exclude = {}, -- table: groups you don't want to clear
+})
+
+EOF
+
+" Prettier format
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 " autocmd VimEnter * highlight TabLineFill  guifg=#91AA90 
   " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597 
@@ -47,13 +64,14 @@ Plug 'sbdchd/neoformat'
 " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#d4d4d4
 " autocmd VimEnter * highlight TabLineFill  guifg=#d4d4d4
 
-autocmd VimEnter * highlight Visual ctermbg=52 guibg=#2083C6
+" autocmd VimEnter * highlight Visual ctermbg=52 guibg=#2083C6
 
 " Customize the defx with everforest theme
 " autocmd VimEnter * highlight DefxIconsDirectory guifg=#2083C6
 autocmd VimEnter * highlight Defx_filename_directory guifg=#7fbbb3
 autocmd VimEnter * highlight Defx_filename_root guifg=#A7C080
 autocmd VimEnter * highlight Defx_icon_directory_icon guifg=#E99B25
+autocmd VimEnter * highlight Defx_icon_opened_icon guifg=#E99B25
 
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/after/plugins/ts-autotag.vim
@@ -68,18 +86,15 @@ source ~/.config/nvim/after/plugins/lualine-new.vim
 source ~/.config/nvim/after/plugins/luatab.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
 source ~/.config/nvim/after/plugins/defx.vim 
-source ~/.config/nvim/after/plugins/toggle-term.vim 
 
+set termguicolors
 set background=dark " or light if you want light mode
-let g:everforest_background = 'hard'
-
-" colorscheme darkplus
+let g:everforest_background = 'soft'
 " For better performance
 let g:everforest_better_performance = 1
 colorscheme everforest
 
 set nocompatible               " be iMproved
-filetype off                   " required!
 
 " Always show tabs
 set showtabline=2
@@ -96,11 +111,10 @@ set mouse=a
 set laststatus=2
 
 " toggle spellcheck with ,s
-nmap <silent> <leader>s :set spell!<CR>
+" nmap <silent> <leader>s :set spell!<CR>
 
 set encoding=UTF-8
 set cursorline 
-set scrolloff=10
 set nowrap "No Wrap lines
 set number
 
@@ -109,16 +123,16 @@ set nobackup
 set nowb
 set noswapfile
 
+set scrolloff=10
+set scroll=10
+" set lazyredraw
+
 " Copy to clipboard 
 set clipboard=unnamed
-
-" Add asterisks in block comments
-set formatoptions+=r
 
 "set up for plugin hexokinase to show color background of color code in js,
 "html, css file. Then we know how does it look like of the color
 "
-set termguicolors
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 " let g:solarized_termcolors=256

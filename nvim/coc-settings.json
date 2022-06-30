@@ -25,14 +25,14 @@
 	},
 
 	// Setup coc-java
-	"java.referencesCodeLens.enabled": true,
+	// "java.referencesCodeLens.enabled": true,
 
 
 	// Setup html
-	"html.filetypes": ["html"],
+	// "html.filetypes": ["html"],
 	// Codelens
-	"codeLens.enable": true,
-	"coc.preferences.formatOnSaveFiletypes": ["go", "html", "css"],
+	// "codeLens.enable": true,
+	"coc.preferences.formatOnSaveFiletypes": ["css", "scss"],
 
 	// Diagnostics
 
