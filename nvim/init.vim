@@ -1,11 +1,16 @@
+" init autocmd
+autocmd!
+
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
+  " Language server
   Plug 'neovim/nvim-lspconfig'
-  Plug 'xiyaowong/nvim-transparent'
+  Plug 'williamboman/nvim-lsp-installer'
+
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
@@ -13,24 +18,44 @@ if has("nvim")
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'onsails/lspkind-nvim'
+
   " telescope
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
+  Plug 'ThePrimeagen/harpoon'
+
+  " Decoration
+  " Plug 'xiyaowong/nvim-transparent'
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'psliwka/vim-smoothie'
+  Plug 'akinsho/toggleterm.nvim'
+  Plug 'sainnhe/everforest'
+  Plug 'gruvbox-community/gruvbox'
+  Plug 'Mofiqul/dracula.nvim'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+  " Plug 'chriskempson/base16-vim'
+  " Plug 'LunarVim/Colorschemes'
+
+  " Icons
   Plug 'kyazdani42/nvim-web-devicons'
+
+  " Lualine and tabline
+  Plug 'alvarosevilla95/luatab.nvim'
   Plug 'hoob3rt/lualine.nvim'
+
+  " Comments
   Plug 'tpope/vim-commentary'
+
+  " Explre files
   Plug 'kristijanhusak/defx-icons'
   Plug 'kristijanhusak/defx-git'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'williamboman/nvim-lsp-installer'
-  Plug 'norcalli/nvim-colorizer.lua'
+
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'sainnhe/everforest'
-  Plug 'alvarosevilla95/luatab.nvim'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-  Plug 'psliwka/vim-smoothie'
 end
 
 " highlight syntax js, jsx, css, html5 https://github.com/sheerun/vim-polyglot
@@ -41,24 +66,15 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-lua << EOF
-
-require("transparent").setup({
-  enable = true, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be cleared
-    -- In particular, when you set it to 'all', that means all available groups
-  },
-  exclude = {}, -- table: groups you don't want to clear
-})
-
-EOF
-
 " Prettier format
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+let g:prettier#config#jsxSingleQuote = 'true'
 
-" autocmd VimEnter * highlight TabLineFill  guifg=#91AA90 
-  " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597 
+let g:prettier#autoformat_config_files = ['css', 'scss']
+
+" autocmd VimEnter * highlight TabLineFill  guifg=#91AA90
+  " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597
 " autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#2f383e guibg=#8097A7
 " autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#d4d4d4 guibg=#007acc
 " autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#d4d4d4
@@ -73,72 +89,105 @@ autocmd VimEnter * highlight Defx_filename_root guifg=#A7C080
 autocmd VimEnter * highlight Defx_icon_directory_icon guifg=#E99B25
 autocmd VimEnter * highlight Defx_icon_opened_icon guifg=#E99B25
 
+autocmd InsertEnter * highlight Cursor gui=reverse guifg=NONE guibg=#e99b25
+" autocmd Learve * highlight Cursor gui=reverse guifg=NONE guibg=#e99b25
+" highlight Cursor gui=NONE guifg=bg guibg=fg
+
 source ~/.config/nvim/maps.vim
+source ~/.config/nvim/sets.vim
+" source ~/.config/nvim/after/plugins/nvim-transparent.vim
 source ~/.config/nvim/after/plugins/ts-autotag.vim
 source ~/.config/nvim/after/plugins/treesitter.vim
 source ~/.config/nvim/after/plugins/lspconfig.vim
-source ~/.config/nvim/after/plugins/language-servers.vim 
+source ~/.config/nvim/after/plugins/language-servers.vim
 source ~/.config/nvim/after/plugins/cmp.vim
 source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
-source ~/.config/nvim/after/plugins/telescope.vim
+" source ~/.config/nvim/after/plugins/telescope.vim
+" source ~/.config/nvim/after/plugins/lualine.vim
 source ~/.config/nvim/after/plugins/lualine-new.vim
 source ~/.config/nvim/after/plugins/luatab.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
-source ~/.config/nvim/after/plugins/defx.vim 
+source ~/.config/nvim/after/plugins/defx.vim
+source ~/.config/nvim/after/plugins/toggleterm.vim
+source ~/.config/nvim/after/plugins/harpoon.vim
 
-set termguicolors
-set background=dark " or light if you want light mode
-let g:everforest_background = 'soft'
-" For better performance
-let g:everforest_better_performance = 1
-colorscheme everforest
+autocmd BufEnter * set scroll=10
 
-set nocompatible               " be iMproved
+" italic for comments
+let g:gruvbox_italic=1
 
-" Always show tabs
-set showtabline=2
+" Cusomize any colorscheme with my favorite vibe cozy
+let g:thang_colorscheme = "gruvbox"
+fun! ColorMyPencils()
+    let g:gruvbox_contrast_dark = 'soft'
+    if exists('+termguicolors')
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+    let g:gruvbox_invert_selection='0'
 
-" turn off the default mode of vim
-set noshowmode
+    set background=dark
+    if has('nvim')
+        call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:thang_colorscheme])
+    else
+        " TODO: What the way to use g:thang_colorscheme
+        colorscheme gruvbox
+    endif
 
-set cmdheight=1
+    highlight ColorColumn ctermbg=0 guibg=grey
+    " hi SignColumn guibg=none
+    hi CursorLineNR guibg=None
+    highlight Normal guibg=none
+    " highlight LineNr guifg=#ff8659
+    " highlight LineNr guifg=#aed75f
+    highlight LineNr guifg=#5eacd3
+    highlight netrwDir guifg=#5eacd3
+    highlight qfFileName guifg=#aed75f
+    hi TelescopeBorder guifg=#5eacd
+endfun
+call ColorMyPencils()
 
-" allow use click
-set mouse=a
+" Vim with me
+nnoremap <leader>cmp :call ColorMyPencils()<CR>
+nnoremap <leader>vwb :let g:thang_colorscheme =
+highlight Normal guibg=none
 
-" always show statusline
-set laststatus=2
+let loaded_matchparen = 1
 
-" toggle spellcheck with ,s
-" nmap <silent> <leader>s :set spell!<CR>
+fun! TrimWhiteSpace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
 
-set encoding=UTF-8
-set cursorline 
-set nowrap "No Wrap lines
-set number
+augroup THANG
+  autocmd!
+  autocmd BufWritePre * :call TrimWhiteSpace()
+augroup END
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
+" Super magic effect when yank something
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
 
-set scrolloff=10
-set scroll=10
-" set lazyredraw
 
-" Copy to clipboard 
-set clipboard=unnamed
+" Config with vim-smoothie
+" set splitright
+
 
 "set up for plugin hexokinase to show color background of color code in js,
 "html, css file. Then we know how does it look like of the color
 "
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-" let g:solarized_termcolors=256
-
-" colorscheme gruvbox
-" set background=dark
+" set termguicolors
+" set background=dark " or light if you want light mode
+" let g:everforest_background = 'soft'
+" " For better performance
+" let g:everforest_better_performance = 1
+" colorscheme everforest
 
 " Syntax theme "{{{
 " ---------------------------------------------------------------------

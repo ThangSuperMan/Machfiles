@@ -1,20 +1,20 @@
 " Highlight
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_normal guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_insert guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_visual guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_replace guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_command guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_terminal guifg=#fd5d5d  
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d  
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_normal guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_insert guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_visual guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_replace guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_command guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_terminal guifg=#fd5d5d
+" autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d
 
 " Fix error when using with everforest theme
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_inactive guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_insert guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_replace guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_visual guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_terminal guifg=#EBDBB2  
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_command guifg=#EBDBB2  
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_inactive guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_insert guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_replace guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_visual guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_terminal guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_hint_command guifg=#EBDBB2
  " lualine_x_diagnostics_hint_command
 " ~   lualine_x_diagnostics_hint_inactive
 " ~   lualine_x_diagnostics_hint_insert
@@ -47,7 +47,7 @@ local mode = {
   "mode",
   fmt = function(str)
       -- return "-- " .. str .. " --"
-      return str 
+      return str
   end,
 }
 
@@ -64,14 +64,14 @@ end
 lualine.setup {
   options = {
     icons_enabled = true,
-		theme= 'solarized_dark',
+		-- theme= 'solarized_dark',
 		-- theme= 'catppuccin',
-		 --  theme= 'everforest',
-		 -- theme= 'gruvbox',
-      section_separators = {left = '', right = ''},
-     -- component_separators = {left = '', right = ''},
-      -- section_separators = {left = '', right = ''},
-      -- component_separators = {left = ')', right = '('},
+		-- theme= 'everforest',
+		 theme= 'gruvbox',
+     --  section_separators = {left = '', right = ''},
+      -- component_separators = {left = '', right = ''},
+       section_separators = {left = '', right = ''},
+       component_separators = {left = ')', right = '('},
      --  section_separators = {left = '', right = ''},
 
     disabled_filetypes = {}
@@ -88,7 +88,7 @@ lualine.setup {
     }},
 
     lualine_x = {
-      { 'diagnostics', sources = {"nvim_diagnostic", "coc"}, 
+      { 'diagnostics', sources = {"nvim_diagnostic", "coc"},
        symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
        -- symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
       'encoding',

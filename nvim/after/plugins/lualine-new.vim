@@ -102,10 +102,10 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		 theme = darkplus_theme,
+		 -- theme = darkplus_theme,
 	    -- theme = "solarized_dark",
 		  -- theme = "auto",
-		  -- theme = "everforest",
+		   theme = "gruvbox",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
