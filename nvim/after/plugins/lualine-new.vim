@@ -105,7 +105,7 @@ lualine.setup({
 		 -- theme = darkplus_theme,
 	    -- theme = "solarized_dark",
 		  -- theme = "auto",
-		   theme = "gruvbox",
+		    theme = "eveforest",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },

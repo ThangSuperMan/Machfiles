@@ -13,14 +13,19 @@ set shortmess+=c
 
 set cmdheight=1
 
+set showmatch
+
 " make the cursor always block
-set guicursor=
+" set guicursor=
 
 set colorcolumn=+10
 " adding the space for diagnostics messages
 set signcolumn=yes
 
 set ttyfast
+
+" Add asterisks in block comments
+set formatoptions+=r
 
 " enable your mouse
 set mouse=a
@@ -31,8 +36,13 @@ set smarttab
 " Faster completion
 set updatetime=30
 
+set t_Co=256
+
 " always show statusline
 set laststatus=2
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
 
 " stop auto commenting, this is hurtful more thaen it is useful
 set formatoptions-=cro
@@ -55,10 +65,10 @@ set nowb
 set noswapfile
 set nobackup
 
-set nohlsearch
+" set nohlsearch
 set lazyredraw
 set scrolloff=8
-set scroll=10
+" set scroll=10
 
 " always copy to clipboard
-" set clipboard=unnamed
+set clipboard=unnamed

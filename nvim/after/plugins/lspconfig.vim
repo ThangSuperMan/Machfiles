@@ -2,7 +2,7 @@ lua << EOF
   local nvim_lsp = require('lspconfig')
   local protocol = require('vim.lsp.protocol')
 
-  -- Use an on_attach function to only map the following keys 
+  -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
   local on_attach = function(client, bufnr)
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -10,7 +10,7 @@ lua << EOF
 
       -- Mappings.
       local opts = { noremap = true, silent = true }
-      buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts) 
+      buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
       buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
       buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
       buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -26,7 +26,7 @@ lua << EOF
  end
 
  -- Setup for css
-  
+
    --Enable (broadcasting) snippet capability for completion
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -61,9 +61,8 @@ lua << EOF
           virtual_text = {
              spacing = 4,
             -- prefix = ' '
-          	 prefix = ''
-          	 -- prefix = ''
-						 
+          	 -- prefix = ''
+
           }
       }
     )
