@@ -16,12 +16,12 @@ lua << EOF
       buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 
       -- Format on save
-      if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_command [[augroup Format]]
-        vim.api.nvim_command [[autocmd! * <buffer>]]
-        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-        vim.api.nvim_command [[augroup END]]
-      end
+      -- if client.resolved_capabilities.document_formatting then
+       -- vim.api.nvim_command [[augroup Format]]
+       --  vim.api.nvim_command [[autocmd! * <buffer>]]
+        -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+       -- vim.api.nvim_command [[augroup END]]
+      --end
 
  end
 
@@ -56,7 +56,7 @@ lua << EOF
       -- Hanle disappear the lspconfig when using the insertmode
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
           vim.lsp.diagnostic.on_publish_diagnostics, {
-          update_in_insert = true,
+          update_in_insert = false,
           -- This sets the spacing and the prefix, obviously.
           virtual_text = {
              spacing = 4,

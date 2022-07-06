@@ -1,6 +1,3 @@
-" init autocmd
-autocmd!
-
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
@@ -18,177 +15,143 @@ if has("nvim")
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'onsails/lspkind-nvim'
+  Plug 'gruvbox-community/gruvbox'
+  Plug 'Mofiqul/dracula.nvim'
+
+  Plug 'terryma/vim-multiple-cursors'
+
+  " explore files
+
+  " Defx 
+  Plug 'kristijanhusak/defx-icons'
+  Plug 'kristijanhusak/defx-git'
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
   " telescope
   " Plug 'nvim-lua/popup.nvim'
   " Plug 'nvim-lua/plenary.nvim'
   " Plug 'nvim-telescope/telescope.nvim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
-  Plug 'ThePrimeagen/harpoon'
 
   " Decoration
-  " Plug 'xiyaowong/nvim-transparent'
+  Plug 'xiyaowong/nvim-transparent'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'psliwka/vim-smoothie'
-  Plug 'akinsho/toggleterm.nvim'
   Plug 'sainnhe/everforest'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
+  " Prettier
+  Plug 'sbdchd/neoformat'
 
   " Icons
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'ryanoasis/vim-devicons'
 
   " Lualine and tabline
   Plug 'alvarosevilla95/luatab.nvim'
   Plug 'hoob3rt/lualine.nvim'
+  " Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+  " Plug 'itchyny/lightline.vim'
 
-  Plug 'kyazdani42/nvim-tree.lua'
+  " Plug 'kyazdani42/nvim-tree.lua'
 
   " Comments
   Plug 'tpope/vim-commentary'
 
-  " explore files
-  " Plug 'kristijanhusak/defx-icons'
-  " Plug 'kristijanhusak/defx-git'
-  " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Learn vim
+  Plug 'ThePrimeagen/vim-be-good'
+
 
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'windwp/nvim-ts-autotag'
 end
 
 " highlight syntax js, jsx, css, html5 https://github.com/sheerun/vim-polyglot
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Auto pairs
 Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-" Prettier format
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#jsxSingleQuote = 'true'
+" Multi select
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
 
-let g:prettier#autoformat_config_files = ['css', 'scss']
+nnoremap ,f :Neoformat<CR>
 
-" autocmd VimEnter * highlight TabLineFill  guifg=#91AA90
-  autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#BB9597
-" autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#2f383e guibg=#8097A7
-autocmd VimEnter * highlight TabLineSel ctermfg=235 ctermbg=142 guifg=#2f383e guibg=#BB9597
-" autocmd VimEnter * highlight TabLine ctermfg=247 ctermbg=238 guifg=#d4d4d4
-autocmd VimEnter * highlight TabLineFill guifg=#2f383e
+" stop auto commenting, this is hurtful more then it is useful
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" autocmd VimEnter * highlight Visual ctermbg=52 guibg=#2083C6
+let g:thang_colorscheme = "gruvbox"
+fun! ColorMyPencils()
+    let g:gruvbox_contrast_dark = 'hard'
+    if exists('+termguicolors')
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+    let g:gruvbox_invert_selection='0'
 
-" Customize the defx with everforest theme
-" autocmd VimEnter * highlight DefxIconsDirectory guifg=#2083C6
-autocmd VimEnter * highlight Defx_filename_directory guifg=#7fbbb3
-autocmd VimEnter * highlight Defx_filename_root guifg=#A7C080
-autocmd VimEnter * highlight Defx_icon_directory_icon guifg=#E99B25
-autocmd VimEnter * highlight Defx_icon_opened_icon guifg=#E99B25
+    set background=dark
+    if has('nvim')
+        call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:thang_colorscheme])
+    else
+        " TODO: What the way to use g:theprimeagen_colorscheme
+        colorscheme gruvbox
+    endif
 
-" autocmd VimEnter * highlight CursorColumn ctermbg=8
-
-" autocmd InsertEnter * highlight Cursor gui=reverse guifg=NONE guibg=#e99b25
-" autocmd Learve * highlight Cursor gui=reverse guifg=NONE guibg=#e99b25
-" highlight Cursor gui=NONE guifg=bg guibg=fg
+    highlight ColorColumn ctermbg=0 guibg=grey
+    hi SignColumn guibg=none
+    hi CursorLineNR guibg=None
+    highlight Normal guibg=none
+    " highlight LineNr guifg=#ff8659
+    " highlight LineNr guifg=#aed75f
+    highlight LineNr guifg=#5eacd3
+    highlight netrwDir guifg=#5eacd3
+    highlight qfFileName guifg=#aed75f
+    hi TelescopeBorder guifg=#5eacd
+endfun
+call ColorMyPencils()
 
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/sets.vim
-" source ~/.config/nvim/after/plugins/nvim-transparent.vim
+source ~/.config/nvim/after/plugins/nvim-transparent.vim
 source ~/.config/nvim/after/plugins/ts-autotag.vim
 source ~/.config/nvim/after/plugins/treesitter.vim
-source ~/.config/nvim/after/plugins/tree-nvim.vim
+" source ~/.config/nvim/after/plugins/tree-nvim.vim
 source ~/.config/nvim/after/plugins/lspconfig.vim
 source ~/.config/nvim/after/plugins/language-servers.vim
 source ~/.config/nvim/after/plugins/cmp.vim
 source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
 " source ~/.config/nvim/after/plugins/telescope.vim
-source ~/.config/nvim/after/plugins/lualine.vim
-" source ~/.config/nvim/after/plugins/lualine-new.vim
-source ~/.config/nvim/after/plugins/luatab.vim
+" source ~/.config/nvim/after/plugins/lualine.vim
+" source ~/.config/nvim/after/plugins/customize-statusline.vim
+source ~/.config/nvim/after/plugins/tabline.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
-" source ~/.config/nvim/after/plugins/defx.vim
-source ~/.config/nvim/after/plugins/toggleterm.vim
-source ~/.config/nvim/after/plugins/harpoon.vim
-
-" set guicursor=a:block-Cursor,i-r:hor20-Cursor
-autocmd BufEnter * set scroll=10
-
-" italic for comments
-" let g:gruvbox_italic=1
-
-" Cusomize any colorscheme with my favorite vibe cozy
-" let g:thang_colorscheme = "everforest"
-" fun! ColorMyPencils()
-"     let g:gruvbox_contrast_dark = 'soft'
-"     if exists('+termguicolors')
-"         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"     endif
-"     let g:gruvbox_invert_selection='0'
-
-"     set background=dark
-"     if has('nvim')
-"         call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:thang_colorscheme])
-"     else
-"         " TODO: What the way to use g:thang_colorscheme
-"         colorscheme everforest
-"     endif
-
-"     highlight ColorColumn ctermbg=0 guibg=grey
-"     hi SignColumn guibg=none
-"     hi CursorLineNR guibg=None
-"     highlight Normal guibg=none
-"     " highlight LineNr guifg=#ff8659
-"     " highlight LineNr guifg=#aed75f
-"     highlight LineNr guifg=#5eacd3
-"     highlight netrwDir guifg=#5eacd3
-"     highlight qfFileName guifg=#aed75f
-"     " hi TelescopeBorder guifg=#5eacd
-" endfun
-" call ColorMyPencils()
-
-" " Vim with me
-" nnoremap <leader>cmp :call ColorMyPencils()<CR>
-" nnoremap <leader>vwb :let g:thang_colorscheme =
-" highlight Normal guibg=none
-
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-if &term =~ "screen"
-  autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
-  autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
-endif
+" source ~/.config/nvim/after/plugins/nerd-tree.vim
+source ~/.config/nvim/after/plugins/defx.vim
+source ~/.config/nvim/after/plugins/lualine.vim
+source ~/.config/nvim/after/plugins/luatab.vim
+" source ~/.config/nvim/after/plugins/harpoon.vim
 
 
-" augroup BgHighlight
-"   autocmd!
-"   autocmd WinEnter * set cul
-"   autocmd WinLeave * set nocul
+"        /-----------------/
+">>-----/    FUNCTIONS    /------------>
+"      /-----------------/
+"
+
+" autocmd VimEnter * highlight CursorLine ctermbg=236 guibg=none
+
+" hi CursorLineNR cterm=bold
+" augroup CLNRSet
+"     autocmd! ColorScheme * hi CursorLineNR cterm=bold guifg=#d3c6aa
 " augroup END
 
-" fun! TrimWhiteSpace()
-"   let l:save = winsaveview()
-"   keeppatterns %s/\s\+$//e
-"   call winrestview(l:save)
-" endfun
-
-" augroup THANG
-"   autocmd!
-"   autocmd BufWritePre * :call TrimWhiteSpace()
-" augroup END
+augroup ScrollSmoothie
+  autocmd!
+  autocmd WinEnter * set scroll=10
+augroup END
 
 " Super magic effect when yank something
 augroup highlight_yank
@@ -196,22 +159,16 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-
-" Config with vim-smoothie
-" set splitright
-
-
-"set up for plugin hexokinase to show color background of color code in js,
-"html, css file. Then we know how does it look like of the color
-"
+" Display colors hexa
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-set termguicolors
-set background=dark " or light if you want light mode
-let g:everforest_background = 'medium'
-" For better performance
-let g:everforest_better_performance = 1
-colorscheme everforest
+
+" set termguicolors
+" set background=dark " or light if you want light mode
+" let g:everforest_background = 'soft'
+" " For better performance
+" let g:everforest_better_performance = 1
+" colorscheme everforest
 
 " Syntax theme "{{{
 " ---------------------------------------------------------------------

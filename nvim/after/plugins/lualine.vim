@@ -8,13 +8,13 @@
 " autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d
 
 " Fix error when using with everforest theme
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_inactive guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_insert guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_replace guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_visual guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_terminal guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_hint_command guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_inactive guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_insert guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_replace guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_visual guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_terminal guifg=#EBDBB2
+" autocmd VimEnter * highlight lualine_x_diagnostics_hint_command guifg=#EBDBB2
  " lualine_x_diagnostics_hint_command
 " ~   lualine_x_diagnostics_hint_inactive
 " ~   lualine_x_diagnostics_hint_insert
@@ -66,8 +66,8 @@ lualine.setup {
     icons_enabled = true,
 		-- theme= 'solarized_dark',
 		-- theme= 'catppuccin',
-		 theme= 'everforest',
-		-- theme= 'gruvbox',
+		 -- theme= 'everforest',
+		 theme= 'gruvbox',
        section_separators = {left = '', right = ''},
        component_separators = {left = '', right = ''},
         -- section_separators = {left = '', right = ''},

@@ -18,18 +18,32 @@ local lsp_installer = require("nvim-lsp-installer")
 
       -- Format on save
       if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_command [[augroup Format]]
-        vim.api.nvim_command [[autocmd! * <buffer>]]
-        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-        vim.api.nvim_command [[augroup END]]
+         vim.api.nvim_command [[augroup Format]]
+         vim.api.nvim_command [[autocmd! * <buffer>]]
+         vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+         vim.api.nvim_command [[augroup END]]
       end
   end
 
  -- Include the servers you want to have installed by default below
 local servers = {
   "gopls",
-	"tailwindcss" 
 }
+
+      -- Hanle disappear the lspconfig when using the insertmode
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+          vim.lsp.diagnostic.on_publish_diagnostics, {
+          update_in_insert = false,
+          -- This sets the spacing and the prefix, obviously.
+          virtual_text = {
+             spacing = 4,
+            -- prefix = 'ÔÅ¨ '
+          	 -- prefix = 'ÔÜ≤'
+
+          }
+      }
+    )
+
 
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
