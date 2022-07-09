@@ -9,14 +9,24 @@ map sl <C-w>l
 
 nnoremap cw ciw
 
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Close current buffer
 " nnoremap <leader>dd :bd<CR>
 
 " close current window 
 nnoremap <leader>c :q<CR>
 
+" Auto adding the single of double quote
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ( ()<left>
+
 " Write current buffer
-" nnoremap <leader>w :write<CR>
+nnoremap <leader>w :write<CR>
 
 " jump up 4 lines in normal mode
 nnoremap <silent> <C-k> :normal 4k<CR>

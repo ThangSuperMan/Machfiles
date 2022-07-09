@@ -11,6 +11,7 @@ set splitbelow
 " Decoration indent
 " set list
 " set listchars=tab:>-,space:⋅
+" set listchars=tab:>-,space:i
 
 " -- toggle invisible characters
 " opt.list = true
@@ -22,8 +23,8 @@ set splitbelow
 "   precedes = "❮"
 " }
 
-" always show tabs
-set showtabline=2
+" Show the tabline when at lease two tab open
+set showtabline=1
 
 set ignorecase
 set smartcase
@@ -45,13 +46,6 @@ set formatoptions-=cro
 " make the cursor always block
 " set guicursor=
 
-" Change the color cursor when inside the insert mode
-" highlight Cursor guifg=white guibg=black
-" highlight iCursor guifg=white guibg=#a7c080
-" set guicursor=n-v-c:block-Cursor
-" set guicursor+=i:block-iCursor
-
-" set colorcolumn=+10
 " adding the space for diagnostics messages
 set signcolumn=yes
 set colorcolumn=80 " Display colomn margin (80 chars)
@@ -90,8 +84,8 @@ set encoding=UTF-8
 set nowrap "No Wrap lines
 
 set number
-" set relativenumber
 " set numberwidth=4
+" set relativenumber
 
 " set smartindent
 

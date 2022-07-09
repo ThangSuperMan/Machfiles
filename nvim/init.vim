@@ -49,8 +49,6 @@ if has("nvim")
   Plug 'alvarosevilla95/luatab.nvim'
   Plug 'hoob3rt/lualine.nvim'
 
-  " Plug 'kyazdani42/nvim-tree.lua'
-
   " Comments
   Plug 'tpope/vim-commentary'
   Plug 'justinmk/vim-sneak'
@@ -62,21 +60,13 @@ if has("nvim")
   Plug 'lewis6991/impatient.nvim'
 end
 
-
-" highlight syntax js, jsx, css, html5 https://github.com/sheerun/vim-polyglot
-" Plug 'sheerun/vim-polyglot'
-
 " Auto pairs
 " Plug 'jiangmiao/auto-pairs'
 Plug 'tweekmonster/startuptime.vim'
 
 call plug#end()
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
+" Impatent
 lua require('impatient')
 
 filetype plugin indent on " Enable file detection and plugins
@@ -87,7 +77,7 @@ map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
 " Fzf
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.4, 'relative': v:true } }
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.4, 'relative': v:true } }
 
 " Multi select
 let g:multi_cursor_next_key='<C-n>'
@@ -131,10 +121,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 "  call ColorMyPencils()
 
 " colorscheme everforest
-
 " highlight Normal guibg=none
-
-map <buffer> Q :q<cr>
 
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/sets.vim
@@ -147,25 +134,13 @@ source ~/.config/nvim/after/plugins/lspkind.vim
 source ~/.config/nvim/after/plugins/telescope.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
 source ~/.config/nvim/after/plugins/defx.vim
-source ~/.config/nvim/after/plugins/lualine-new.vim
-" source ~/.config/nvim/after/plugins/luatab.vim
+source ~/.config/nvim/after/plugins/lualine.vim
 
 
 "        /-----------------/
 ">>-----/    FUNCTIONS    /------------>
 "      /-----------------/
-"
 
-" autocmd VimEnter * highlight CursorLine ctermbg=236 guibg=none
-
-" CursorIM       xxx links to Cursor
-" autocmd VimEnter * hi CursorIM guibg=none
-
-" hi CursorLineNR cterm=bold
-" augroup CLNRSet
-"     autocmd! ColorScheme * h CursorLine ctermbg=235 guibg=none guifg=#BEC672
-"     autocmd! ColorScheme * hi CursorLineNR cterm=bold guifg=#BEC672 guibg=none
-" augroup END
 
 " augroup BgHighlight
 "   autocmd!
@@ -178,11 +153,6 @@ source ~/.config/nvim/after/plugins/lualine-new.vim
 "   autocmd!
 "   autocmd WinEnter * set scroll=10
 " augroup END
-
-" Auto adding the single of double quote
-ino ' ''<left>
-ino " ""<left>
-ino ( ()<left>
 
 "auto close when hit enter
 function! s:CloseBracket()
@@ -206,11 +176,10 @@ augroup END
 
 " Display colors hexa
 let g:Hexokinase_highlighters = ['backgroundfull']
-"
-"
- set termguicolors
- set background=dark " or light if you want light mode
- let g:everforest_background = 'soft'
- " For better performance
- let g:everforest_better_performance = 1
-  colorscheme everforest
+
+set termguicolors
+set background=dark " or light if you want light mode
+let g:everforest_background = 'soft'
+" For better performance
+let g:everforest_better_performance = 1
+colorscheme everforest
