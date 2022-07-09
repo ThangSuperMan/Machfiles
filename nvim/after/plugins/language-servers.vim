@@ -1,11 +1,12 @@
 lua << EOF
-
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 
     local function on_attach(client, bufnr)
+      require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
+
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -29,6 +30,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local servers = {
   "gopls",
 }
+
 
       -- Hanle disappear the lspconfig when using the insertmode
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

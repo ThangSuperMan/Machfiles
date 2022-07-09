@@ -8,20 +8,22 @@
 " autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d
 
 " Fix error when using with everforest theme
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_normal guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_inactive guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_insert guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_replace guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_visual guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_terminal guifg=#EBDBB2
-" autocmd VimEnter * highlight lualine_x_diagnostics_hint_command guifg=#EBDBB2
- " lualine_x_diagnostics_hint_command
-" ~   lualine_x_diagnostics_hint_inactive
-" ~   lualine_x_diagnostics_hint_insert
-" ~   lualine_x_diagnostics_hint_normal
-" ~   lualine_x_diagnostics_hint_replace
-" ~   lualine_x_diagnostics_hint_terminal
-" ~   lualine_x_diagnostics_hint_visual
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_normal guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_inactive guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_insert guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_replace guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_visual guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_terminal guifg=#EBDBB2
+autocmd VimEnter * highlight lualine_x_diagnostics_warn_command guifg=#EBDBB2
+
+" lualine_x_diagnostics_warn_normal xxx guifg=#EBDBB2
+ " lualine_x_diagnostics_warn_command
+" ~   lualine_x_diagnostics_warn_inactive
+" ~   lualine_x_diagnostics_warn_insert
+" ~   lualine_x_diagnostics_warn_normal
+" ~   lualine_x_diagnostics_warn_replace
+" ~   lualine_x_diagnostics_warn_terminal
+" ~   lualine_x_diagnostics_warn_visual
 
 lua << EOF
 
@@ -61,13 +63,22 @@ local progress = function()
   return chars[index]
 end
 
+local diagnostics = {
+	"diagnostics",
+	sources = { "nvim_diagnostic" },
+	sections = { "error", "warn" },
+	symbols = { error = " ", warn = " " },
+	colored = true,
+	update_in_insert = false,
+	always_visible = true,
+}
+
 lualine.setup {
   options = {
     icons_enabled = true,
 		-- theme= 'solarized_dark',
 		-- theme= 'catppuccin',
-		 -- theme= 'everforest',
-		 theme= 'gruvbox',
+		  theme= 'everforest',
        section_separators = {left = '', right = ''},
        component_separators = {left = '', right = ''},
         -- section_separators = {left = '', right = ''},
@@ -79,9 +90,11 @@ lualine.setup {
     disabled_filetypes = {}
 },
   sections = {
-    lualine_a = {mode,
+    lualine_a = {mode
     },
-    lualine_b = {branch},
+    lualine_b = {
+        branch
+    },
     lualine_c = {{
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
@@ -90,9 +103,10 @@ lualine.setup {
     }},
 
     lualine_x = {
-      { 'diagnostics', sources = {"nvim_diagnostic", "coc"},
-       symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-       -- symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+        diagnostics,
+         -- { 'diagnostics', sources = {"nvim_diagnostic"},
+         -- symbols = {error = ' ', warn = ' ', info = ' ', warn = ' '} },
+         -- symbols = {error = ' ', warn = ' ', info = ' ', warn = ' '} },
       'encoding',
       'filetype',
     },

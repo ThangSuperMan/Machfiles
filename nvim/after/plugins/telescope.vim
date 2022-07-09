@@ -1,4 +1,3 @@
-
 " function telescope_buffer_dir()
 "   return vim.fn.expand('%:p:h')
 " end

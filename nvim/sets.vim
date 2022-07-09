@@ -6,6 +6,22 @@ set nocompatible               " be iMproved
 set wildmode=longest,list,full
 set wildmenu
 
+set splitbelow
+
+" Decoration indent
+" set list
+" set listchars=tab:>-,space:⋅
+
+" -- toggle invisible characters
+" opt.list = true
+" opt.listchars = {
+"   tab = "→ ",
+"   eol = "¬",
+"   trail = "⋅",
+"   extends = "❯",
+"   precedes = "❮"
+" }
+
 " always show tabs
 set showtabline=2
 
@@ -14,9 +30,11 @@ set smartcase
 
 set title
 
-" turn off the default mode of set 
-set noshowmode
+set noshowmode " Turn off the insert mode
 set shortmess+=c
+
+" Hit enter /target and then it's gonna be go to the targget right away
+set noincsearch
 
 set cmdheight=1
 
@@ -25,12 +43,18 @@ set showmatch
 set formatoptions-=cro
 
 " make the cursor always block
-set guicursor=
+" set guicursor=
+
+" Change the color cursor when inside the insert mode
+" highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=white guibg=#a7c080
+" set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:block-iCursor
 
 " set colorcolumn=+10
 " adding the space for diagnostics messages
 set signcolumn=yes
-set colorcolumn=80
+set colorcolumn=80 " Display colomn margin (80 chars)
 
 " Add asterisks in block comments
 set formatoptions+=r
@@ -44,7 +68,7 @@ set smarttab
 set autowrite
 
 " Faster completion
-set updatetime=300
+set updatetime=30
 
 set t_Co=256
 
@@ -52,7 +76,7 @@ set t_Co=256
 set laststatus=2
 
 " Autocomplete with dictionary words when spell check is on
-set complete+=kspell
+" set complete+=kspell
 
 " toggle spellcheck with ,s
 nmap <silent> <leader>s :set spell!<CR>
@@ -66,8 +90,8 @@ set encoding=UTF-8
 set nowrap "No Wrap lines
 
 set number
-set relativenumber
-set numberwidth=4
+" set relativenumber
+" set numberwidth=4
 
 " set smartindent
 
@@ -78,8 +102,8 @@ set nobackup
 
 " set nohlsearch
 set lazyredraw
-set scrolloff=10
-set scroll=10
+set scrolloff=8
+" set scroll=10
 
 " always copy to clipboard
 set clipboard=unnamed
