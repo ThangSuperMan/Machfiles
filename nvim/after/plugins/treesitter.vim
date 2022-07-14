@@ -10,9 +10,10 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
  ensure_installed = {
-      "go",
+    "go",
  	"tsx",
     "html",
+    "lua",
   },
   autotag = {
     enable = true,

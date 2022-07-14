@@ -2,11 +2,13 @@ syntax on
 
 set nocompatible               " be iMproved
 
+set backspace=2
+
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
 
-set splitbelow
+" set guicursor=n-v-c-i-sm:block
 
 " Decoration indent
 " set list
@@ -32,10 +34,10 @@ set smartcase
 set title
 
 set noshowmode " Turn off the insert mode
-set shortmess+=c
+" set shortmess+=c
 
 " Hit enter /target and then it's gonna be go to the targget right away
-set noincsearch
+" set noincsearch
 
 set cmdheight=1
 
@@ -43,15 +45,10 @@ set showmatch
 
 set formatoptions-=cro
 
-" make the cursor always block
-" set guicursor=
 
 " adding the space for diagnostics messages
 set signcolumn=yes
-set colorcolumn=80 " Display colomn margin (80 chars)
-
-" Add asterisks in block comments
-set formatoptions+=r
+" set colorcolumn=80 " Display colomn margin (80 chars)
 
 " enable your mouse
 set mouse=a
@@ -66,13 +63,15 @@ set updatetime=30
 
 set t_Co=256
 
+nnoremap <silent> Q <nop>
+
 " always show statusline
 set laststatus=2
 
-" Autocomplete with dictionary words when spell check is on
-" set complete+=kspell
+" bookmarked directories 
+nnoremap <leader>f.  :edit ~/.config/nvim/init.vim
 
-" toggle spellcheck with ,s
+" toggle spellcheck
 nmap <silent> <leader>s :set spell!<CR>
 
 set tabstop=4 softtabstop=4
@@ -80,7 +79,7 @@ set shiftwidth=4
 set expandtab
 
 set encoding=UTF-8
-" set cursorline
+set cursorline
 set nowrap "No Wrap lines
 
 set number
@@ -97,7 +96,7 @@ set nobackup
 " set nohlsearch
 set lazyredraw
 set scrolloff=8
-" set scroll=10
+set scroll=10
 
 " always copy to clipboard
 set clipboard=unnamed

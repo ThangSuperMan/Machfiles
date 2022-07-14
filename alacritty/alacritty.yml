@@ -88,10 +88,11 @@ schemes:
   everforest_dark_hard: &everforest_dark_hard
     cursor:
       # cursor: "#BEC672"
-      #cursor: "#d3c6aa"
-      #cursor: "#e99b25"
+      # cursor: "#d3c6aa"
+      # cursor: "#e99b25"
+     cursor: "#7fbbb3"
       #cursor: "#FF92DF"
-      cursor: "#F9A698"
+      # cursor: "#F9A698"
 
     primary:
       background: "#2b3339"

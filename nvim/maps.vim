@@ -7,42 +7,42 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
-nnoremap cw ciw
+inoremap jk <ESC>
+inoremap ww <ESC>:w<cr>
+nnoremap ; :
+
+" Make windows to be basically the same size
+nnoremap <leader>= <C-w>=
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" Close current buffer
-" nnoremap <leader>dd :bd<CR>
-
-" close current window 
-nnoremap <leader>c :q<CR>
+" greatest remap ever
+xnoremap <leader>p "_dP
 
 " Auto adding the single of double quote
 inoremap ' ''<left>
 inoremap " ""<left>
 inoremap ( ()<left>
+inoremap [ []<Left>
+inoremap ` ``<Left>
+
 
 " Write current buffer
-nnoremap <leader>w :write<CR>
+" nnoremap <leader>w :write<CR>
 
 " jump up 4 lines in normal mode
-nnoremap <silent> <C-k> :normal 4k<CR>
+" nnoremap <silent> <C-k> :normal 4k<CR>
 
 " jump down 4 lines in normal mode
-nnoremap <silent> <C-j> :normal 4j<CR>
+" nnoremap <silent> <C-j> :normal 4j<CR>
 
-" jump up 4 lines in visual mode
-xnoremap <silent> <C-k> :normal gv4k<CR>
-
-" jump down 4 lines in visual mode
-xnoremap <silent> <C-j> :normal gv4j<CR>
 
 " Get off my lawn
-nnoremap <C-u> :echoe "Use Ctrl k"<CR>
-nnoremap <C-d> :echoe "Use Ctrl j"<CR>
+" nnoremap <C-u> :echoe "Use Ctrl k"<CR>
+" nnoremap <C-d> :echoe "Use Ctrl j"<CR>
 " nnoremap <Up> :echoe "Use k"<CR>
 " nnoremap <Down> :echoe "Use j"<CR>
 
@@ -57,13 +57,10 @@ nnoremap ,s :setlocal spell!<Cr>
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
-" nnoremap <C-f> :FZF<Cr>
+nnoremap <C-f> :FZF<Cr>
 
 " Delete a word backwards and do not yank
-nnoremap dw vb"_d
-
-" greatest remap ever
-xnoremap <leader>p "_dP
+" nnoremap dw vb"_d
 
 " Delete without yank
 nnoremap <leader>d "_d
@@ -77,26 +74,27 @@ xnoremap H ^
 nnoremap L g_
 xnoremap L g_
 
+
 " Yank from current cursor position to the end of the line (make it
 " consistent with the behavior of D, C)
 nnoremap Y y$
 
-nnoremap <leader>s :set scroll=10<Cr>
+" nnoremap <leader>s :set scroll=10<Cr>
 
 " Jump out the curly brakets and isnert after that
 " inoremap <C-]> <C-o>A
 inoremap <silent> <c-l> <C-o>A
 
 " Esc when state is insert mode
-inoremap <C-[> <Esc>
+" inoremap <C-[> <Esc>
 
 " Move the selected line
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Scroll setup
-" nnoremap <C-d> 10<C-d>
-" nnoremap <C-u> 10<C-u>
+" nnoremap <C-d> 8<C-d>
+" nnoremap <C-u> 8<C-u>
 
 nmap = :res +5<CR> " increase pane by 2
 nmap - :res -5<CR> " decrease pane by 2
@@ -104,8 +102,8 @@ nmap ] :vertical res +5<CR> " vertical increase pane by 2
 nmap [ :vertical res -5<CR> " vertical decrease pane by 2
 
 " paste the last thing yanked, not deleted
-nmap ,p "0p
-nmap ,P "0P
+" nmap ,p "0p
+" nmap ,P "0P
 
 " Turn off the hightlight
 nnoremap <Esc><Esc> :nohlsearch<CR>

@@ -16,6 +16,8 @@ if has("nvim")
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'onsails/lspkind-nvim'
   Plug 'lifepillar/vim-gruvbox8'
+  Plug 'nvim-lua/lsp-status.nvim'
+  " Plug 'itchyny/lightline.vim'
 
   Plug 'terryma/vim-multiple-cursors'
   Plug 'ray-x/lsp_signature.nvim'
@@ -27,15 +29,16 @@ if has("nvim")
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
   " telescope
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'https://github.com/adelarsq/neoline.vim'
 
   " Decoration
-  " Plug 'xiyaowong/nvim-transparent'
+  Plug 'xiyaowong/nvim-transparent'
   Plug 'norcalli/nvim-colorizer.lua'
-  " Plug 'psliwka/vim-smoothie'
+  Plug 'psliwka/vim-smoothie'
   Plug 'sainnhe/everforest'
   Plug 'junegunn/seoul256.vim'
 
@@ -46,12 +49,12 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
 
   " Lualine and tabline
-  Plug 'alvarosevilla95/luatab.nvim'
+  " Plug 'alvarosevilla95/luatab.nvim'
   Plug 'hoob3rt/lualine.nvim'
 
   " Comments
   Plug 'tpope/vim-commentary'
-  Plug 'justinmk/vim-sneak'
+  " Plug 'justinmk/vim-sneak'
 
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'windwp/nvim-ts-autotag'
@@ -66,28 +69,38 @@ Plug 'tweekmonster/startuptime.vim'
 
 call plug#end()
 
+lua << EOF
+
+EOF
+
+
+
 " Impatent
 lua require('impatient')
 
-filetype plugin indent on " Enable file detection and plugins
+" Customize the current number of cursor
+autocmd VimEnter * hi CursorLine ctermbg=236 guibg=none
 
-" Snake 
-let g:sneak#label = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+" stop auto commenting, this is hurtful more then it is useful
+" autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" " Snake 
+" let g:sneak#label = 1
+" map f <Plug>Sneak_s
+" map F <Plug>Sneak_S
 
 " Fzf
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.4, 'relative': v:true } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.4, 'relative': v:true } }
 
 " Multi select
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 
-nnoremap ,f :Neoformat<CR>
+" Remove whitespace
+" nnoremap ,sws :%s/\s\+$//<CR>
 
-" stop auto commenting, this is hurtful more then it is useful
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+nnoremap ,f :Neoformat<CR>
 
 " let g:everforest_background = 'gruvbox8_soft'
 " let g:thang_colorscheme = "everforest"
@@ -120,22 +133,22 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 "  endfun
 "  call ColorMyPencils()
 
-" colorscheme everforest
-" highlight Normal guibg=none
-
-source ~/.config/nvim/maps.vim
 source ~/.config/nvim/sets.vim
+source ~/.config/nvim/maps.vim
 source ~/.config/nvim/after/plugins/treesitter.vim
+source ~/.config/nvim/after/plugins/terminal.vim
 source ~/.config/nvim/after/plugins/lspconfig.vim
 source ~/.config/nvim/after/plugins/language-servers.vim
 source ~/.config/nvim/after/plugins/cmp.vim
 source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
-source ~/.config/nvim/after/plugins/telescope.vim
+" source ~/.config/nvim/after/plugins/telescope.vim
 source ~/.config/nvim/after/plugins/colorizer.vim
 source ~/.config/nvim/after/plugins/defx.vim
 source ~/.config/nvim/after/plugins/lualine.vim
-
+" source ~/.config/nvim/after/plugins/lualine-customization.lua
+source ~/.config/nvim/after/plugins/nvim-transparent.vim
+" source ~/.config/nvim/after/plugins/yaya.vim
 
 "        /-----------------/
 ">>-----/    FUNCTIONS    /------------>
@@ -149,10 +162,10 @@ source ~/.config/nvim/after/plugins/lualine.vim
 " augroup END
 
 " Fix error scroll up and down to high
-" augroup ScrollSmoothie
-"   autocmd!
-"   autocmd WinEnter * set scroll=10
-" augroup END
+augroup ScrollSmoothie
+  autocmd!
+  autocmd WinEnter * set scroll=10
+augroup END
 
 "auto close when hit enter
 function! s:CloseBracket()
@@ -173,6 +186,18 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
+
+
+" " Cool highlighting courtesy of @clason
+" augroup LuaHighlight
+"   au!
+"   au TextYankPost * lua vim.highlight.on_yank {
+"         \ higroup = "Substitute",
+"         \ timeout = 150,
+"         \ on_macro = true
+"         \ }
+" augroup END
+
 
 " Display colors hexa
 let g:Hexokinase_highlighters = ['backgroundfull']
