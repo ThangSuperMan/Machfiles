@@ -30,6 +30,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local servers = {
   "gopls",
   "sumneko_lua",
+  "sorbet",
   "vimls",
 }
 

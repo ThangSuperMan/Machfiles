@@ -59,7 +59,8 @@
 "
 "     if has('gui_running')
 "       set background=light
-"     else"       set background=dark
+"     else
+"       set background=dark
 "     endif
 "
 " See the Solarized homepage at http://ethanschoonover.com/solarized for
@@ -213,7 +214,8 @@ if &background == "light"
     let s:gui_temp00    =   s:gui_base00
     let s:gui_base03    =   s:gui_base3
     let s:gui_base02    =   s:gui_base2
-    let s:gui_base01    =   s:gui_base1    let s:gui_base00    =   s:gui_base0
+    let s:gui_base01    =   s:gui_base1
+    let s:gui_base00    =   s:gui_base0
     let s:gui_base0     =   s:gui_temp00
     let s:gui_base1     =   s:gui_temp01
     let s:gui_base2     =   s:gui_temp02

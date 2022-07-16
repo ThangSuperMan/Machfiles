@@ -7,9 +7,14 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
-inoremap jk <ESC>
-inoremap ww <ESC>:w<cr>
+" inoremap jk <ESC>
+" inoremap kj <ESC>
+" inoremap ww <ESC>:w<cr>
 nnoremap ; :
+
+" Tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
@@ -23,12 +28,11 @@ nnoremap N Nzzzv
 xnoremap <leader>p "_dP
 
 " Auto adding the single of double quote
-inoremap ' ''<left>
-inoremap " ""<left>
-inoremap ( ()<left>
-inoremap [ []<Left>
-inoremap ` ``<Left>
-
+" inoremap ' ''<left>
+" inoremap " ""<left>
+" inoremap ( ()<left>
+" inoremap [ []<Left>
+" inoremap ` ``<Left>
 
 " Write current buffer
 " nnoremap <leader>w :write<CR>
@@ -38,14 +42,6 @@ inoremap ` ``<Left>
 
 " jump down 4 lines in normal mode
 " nnoremap <silent> <C-j> :normal 4j<CR>
-
-
-" Get off my lawn
-" nnoremap <C-u> :echoe "Use Ctrl k"<CR>
-" nnoremap <C-d> :echoe "Use Ctrl j"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>
-
 
 " better substitute 
 " nnoremap <leader>z :%s/<C-R><C-W>/<C-R>0/g<CR>
@@ -57,7 +53,7 @@ nnoremap ,s :setlocal spell!<Cr>
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
-nnoremap <C-f> :FZF<Cr>
+nnoremap <leader>f :FZF<Cr>
 
 " Delete a word backwards and do not yank
 " nnoremap dw vb"_d
@@ -86,7 +82,7 @@ nnoremap Y y$
 inoremap <silent> <c-l> <C-o>A
 
 " Esc when state is insert mode
-" inoremap <C-[> <Esc>
+inoremap <C-[> <Esc>
 
 " Move the selected line
 vnoremap J :m '>+1<CR>gv=gv

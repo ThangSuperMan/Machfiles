@@ -67,7 +67,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	symbols = { error = " ", warn = " " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
@@ -76,9 +76,9 @@ local diagnostics = {
 lualine.setup {
   options = {
     icons_enabled = true,
-		-- theme= 'solarized_dark',
+		 theme= 'solarized_dark',
 		-- theme= 'catppuccin',
-		  theme= 'everforest',
+		 -- theme= 'everforest',
        section_separators = {left = '', right = ''},
        component_separators = {left = '', right = ''},
         -- section_separators = {left = '', right = ''},

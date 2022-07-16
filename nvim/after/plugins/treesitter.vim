@@ -10,8 +10,9 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
  ensure_installed = {
+    "javascript",
     "go",
- 	"tsx",
+   	"tsx",
     "html",
     "lua",
   },

@@ -2,6 +2,8 @@ syntax on
 
 set nocompatible               " be iMproved
 
+set encoding=UTF-8
+
 set backspace=2
 
 " Nice menu when typing `:find *.py`
@@ -74,8 +76,8 @@ nnoremap <leader>f.  :edit ~/.config/nvim/init.vim
 " toggle spellcheck
 nmap <silent> <leader>s :set spell!<CR>
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 
 set encoding=UTF-8
@@ -83,8 +85,8 @@ set cursorline
 set nowrap "No Wrap lines
 
 set number
-" set numberwidth=4
-" set relativenumber
+set numberwidth=5
+set relativenumber
 
 " set smartindent
 
