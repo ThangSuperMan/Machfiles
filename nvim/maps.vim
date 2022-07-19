@@ -7,14 +7,7 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
-" inoremap jk <ESC>
-" inoremap kj <ESC>
-" inoremap ww <ESC>:w<cr>
 nnoremap ; :
-
-" Tabbing
-vnoremap < <gv
-vnoremap > >gv
 
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
@@ -26,13 +19,6 @@ nnoremap N Nzzzv
 
 " greatest remap ever
 xnoremap <leader>p "_dP
-
-" Auto adding the single of double quote
-" inoremap ' ''<left>
-" inoremap " ""<left>
-" inoremap ( ()<left>
-" inoremap [ []<Left>
-" inoremap ` ``<Left>
 
 " Write current buffer
 " nnoremap <leader>w :write<CR>
@@ -48,6 +34,13 @@ xnoremap <leader>p "_dP
 
 " turn spelling off or on
 nnoremap ,s :setlocal spell!<Cr>
+
+" Remove highlight
+map <Esc><Esc> :nohl<CR>
+
+" Use tab with text block
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 " Split window
 nmap ss :split<Return><C-w>w
@@ -70,12 +63,9 @@ xnoremap H ^
 nnoremap L g_
 xnoremap L g_
 
-
 " Yank from current cursor position to the end of the line (make it
 " consistent with the behavior of D, C)
 nnoremap Y y$
-
-" nnoremap <leader>s :set scroll=10<Cr>
 
 " Jump out the curly brakets and isnert after that
 " inoremap <C-]> <C-o>A
@@ -89,8 +79,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Scroll setup
-" nnoremap <C-d> 8<C-d>
-" nnoremap <C-u> 8<C-u>
+nnoremap <C-d> 10<C-d>
+nnoremap <C-u> 10<C-u>
 
 nmap = :res +5<CR> " increase pane by 2
 nmap - :res -5<CR> " decrease pane by 2
@@ -101,8 +91,6 @@ nmap [ :vertical res -5<CR> " vertical decrease pane by 2
 " nmap ,p "0p
 " nmap ,P "0P
 
-" Turn off the hightlight
-nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " Copy whole text in file
 nnoremap ya :%y+<CR>

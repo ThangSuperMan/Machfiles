@@ -41,13 +41,8 @@ lua << EOF
 
 -- Setup for css
 
-
--- Ruby
-
-require'lspconfig'.solargraph.setup{
- on_attach = on_attach,
- filetype = {"ruby"}
-}
+-- Type cheker
+-- require'lspconfig'.sorbet.setup{}
 
 -- Ruby
 

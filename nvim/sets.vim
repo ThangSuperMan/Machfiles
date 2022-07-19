@@ -4,6 +4,12 @@ set nocompatible               " be iMproved
 
 set encoding=UTF-8
 
+" hello front end masters
+set path+=**
+
+set wildignore+=*_build/*
+set wildignore+=**/node_modules/*
+
 set backspace=2
 
 " Nice menu when typing `:find *.py`
@@ -47,10 +53,9 @@ set showmatch
 
 set formatoptions-=cro
 
-
 " adding the space for diagnostics messages
 set signcolumn=yes
-" set colorcolumn=80 " Display colomn margin (80 chars)
+" set colorcolumn=+1 " Display colomn margin (80 chars)
 
 " enable your mouse
 set mouse=a
@@ -85,8 +90,8 @@ set cursorline
 set nowrap "No Wrap lines
 
 set number
-set numberwidth=5
-set relativenumber
+" set numberwidth=5
+" set relativenumber
 
 " set smartindent
 
@@ -98,7 +103,7 @@ set nobackup
 " set nohlsearch
 set lazyredraw
 set scrolloff=8
-set scroll=10
+set scroll=15
 
 " always copy to clipboard
 set clipboard=unnamed

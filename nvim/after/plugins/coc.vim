@@ -1,4 +1,10 @@
-let g:coc_global_extensions = [ 'coc-prettier']
+let g:coc_global_extensions = [ 
+      \'coc-prettier', 
+      \'coc-solargraph',
+      \'coc-tsserver',
+      \'coc-tailwindcss',
+      \'coc-html',
+      \'coc-css']
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -50,8 +56,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
 
 " Config same with lspconfig
 nmap <silent> <C-e> <Plug>(coc-diagnostic-next)

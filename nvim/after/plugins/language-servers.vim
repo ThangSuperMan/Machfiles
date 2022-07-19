@@ -5,7 +5,7 @@ local lsp_installer = require("nvim-lsp-installer")
 -- or if the server is already installed).
 
     local function on_attach(client, bufnr)
-      require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
+      -- require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
 
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -29,9 +29,7 @@ local lsp_installer = require("nvim-lsp-installer")
  -- Include the servers you want to have installed by default below
 local servers = {
   "gopls",
-  "sumneko_lua",
-  "sorbet",
-  "vimls",
+  "tailwindcss",
 }
 
       -- Hanle disappear the lspconfig when using the insertmode

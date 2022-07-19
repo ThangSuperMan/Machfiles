@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
     "go",
    	"tsx",
     "html",
+    "ruby",
     "lua",
   },
   autotag = {
