@@ -2,6 +2,7 @@ let g:coc_global_extensions = [
       \'coc-prettier', 
       \'coc-solargraph',
       \'coc-tsserver',
+      \'coc-go',
       \'coc-tailwindcss',
       \'coc-html',
       \'coc-css']

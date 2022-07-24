@@ -9,6 +9,11 @@ map sl <C-w>l
 
 nnoremap ; :
 
+" nmap ,a gg<S-v>G
+" Delete from the current line to the end of a file
+nnoremap db <S-v>Gd
+
+
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
 
@@ -29,9 +34,6 @@ xnoremap <leader>p "_dP
 " jump down 4 lines in normal mode
 " nnoremap <silent> <C-j> :normal 4j<CR>
 
-" better substitute 
-" nnoremap <leader>z :%s/<C-R><C-W>/<C-R>0/g<CR>
-
 " turn spelling off or on
 nnoremap ,s :setlocal spell!<Cr>
 
@@ -45,8 +47,6 @@ vmap <S-Tab> <gv
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
-
-nnoremap <leader>f :FZF<Cr>
 
 " Delete a word backwards and do not yank
 " nnoremap dw vb"_d
@@ -79,8 +79,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Scroll setup
-nnoremap <C-d> 10<C-d>
-nnoremap <C-u> 10<C-u>
+" nnoremap <C-d> 10<C-d>
+" nnoremap <C-u> 10<C-u>
 
 nmap = :res +5<CR> " increase pane by 2
 nmap - :res -5<CR> " decrease pane by 2

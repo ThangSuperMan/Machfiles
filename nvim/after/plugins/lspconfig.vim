@@ -7,6 +7,8 @@ lua << EOF
   -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
   local on_attach = function(client, bufnr)
+      require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
+
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -27,8 +29,6 @@ lua << EOF
 
  end
 
--- Setup for css
-
    --Enable (broadcasting) snippet capability for completion
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -39,7 +39,16 @@ lua << EOF
 		filetypes = {"css", "scss"}
   }
 
--- Setup for css
+  nvim_lsp.gopls.setup {
+    on_attach = on_attach,
+    cmd = { "gopls", "serve" },
+    settings = {
+      analyses = {
+        unusedparams = true
+      },
+      staticcheck = true
+    }
+  }
 
 -- Type cheker
 -- require'lspconfig'.sorbet.setup{}
@@ -49,7 +58,7 @@ lua << EOF
 -- Setup html
       require'lspconfig'.html.setup {
             on_attach= on_attach,
-            filetypes = { "html", "jsp", "ejs" },
+            filetypes = { "html", "jsp", "ejs", "gohtml" },
             capabilities = capabilities,
       }
 -- Setup html

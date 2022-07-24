@@ -11,6 +11,10 @@ setopt appendhistory
 
 export TERM=xterm-256color
 
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # Alias 
 alias v='nvim'
 alias e='exit'
@@ -19,7 +23,8 @@ alias ls='ls --color=auto'
 alias cls='clear'
 alias config='nvim ~/.config/nvim/init.vim'
 alias gr='go run'
-alias ide="tmux split-window -v -p 20 && tmux split-window -h -p 52"
+alias ideh="tmux split-window -h -p 80"
+alias ide="tmux split-window -v -p 25 && tmux split-window -h -p 80"
 alias tks='tmux kill-server'
 alias web='cd ~/dev/web/'
 
@@ -211,6 +216,3 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Auto load the xmodmap file
 # xmodmap ~/.Xmodmap
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

@@ -1,30 +1,3 @@
-" Highlight
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_normal guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_insert guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_visual guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_replace guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_command guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_terminal guifg=#fd5d5d
-" autocmd VimEnter * highlight lualine_x_diagnostics_error_inactive guifg=#fd5d5d
-
-" Fix error when using with everforest theme
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_normal guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_inactive guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_insert guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_replace guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_visual guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_terminal guifg=#EBDBB2
-autocmd VimEnter * highlight lualine_x_diagnostics_warn_command guifg=#EBDBB2
-
-" lualine_x_diagnostics_warn_normal xxx guifg=#EBDBB2
- " lualine_x_diagnostics_warn_command
-" ~   lualine_x_diagnostics_warn_inactive
-" ~   lualine_x_diagnostics_warn_insert
-" ~   lualine_x_diagnostics_warn_normal
-" ~   lualine_x_diagnostics_warn_replace
-" ~   lualine_x_diagnostics_warn_terminal
-" ~   lualine_x_diagnostics_warn_visual
-
 lua << EOF
 
 local status, lualine = pcall(require, "lualine")
@@ -67,7 +40,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	symbols = { error = " ", warn = " " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
@@ -76,9 +49,9 @@ local diagnostics = {
 lualine.setup {
   options = {
     icons_enabled = true,
-		 theme= 'solarized_dark',
+		-- theme= 'solarized_dark',
 		-- theme= 'catppuccin',
-		 -- theme= 'everforest',
+		 theme= 'everforest',
        section_separators = {left = '', right = ''},
        component_separators = {left = '', right = ''},
         -- section_separators = {left = '', right = ''},

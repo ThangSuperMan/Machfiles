@@ -1,26 +1,25 @@
-syntax on
-
 set nocompatible               " be iMproved
 
-set encoding=UTF-8
+set fileencodings=utf-8,sjis,euc-jp,latin
+set encoding=utf-8
 
-" hello front end masters
-set path+=**
+" Searching to the sub dicrectory with find command
+" set path+=**
 
-set wildignore+=*_build/*
-set wildignore+=**/node_modules/*
+" set wildignore+=*_build/*
+" set wildignore+=**/node_modules/*
 
 set backspace=2
 
 " Nice menu when typing `:find *.py`
-set wildmode=longest,list,full
+" set wildmode=longest,list,full
 set wildmenu
 
 " set guicursor=n-v-c-i-sm:block
 
 " Decoration indent
-" set list
-" set listchars=tab:>-,space:⋅
+set list
+set listchars=tab:>-,space:⋅
 " set listchars=tab:>-,space:i
 
 " -- toggle invisible characters
@@ -38,8 +37,6 @@ set showtabline=1
 
 set ignorecase
 set smartcase
-
-set title
 
 set noshowmode " Turn off the insert mode
 " set shortmess+=c
@@ -75,9 +72,6 @@ nnoremap <silent> Q <nop>
 " always show statusline
 set laststatus=2
 
-" bookmarked directories 
-nnoremap <leader>f.  :edit ~/.config/nvim/init.vim
-
 " toggle spellcheck
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -86,14 +80,10 @@ set shiftwidth=2
 set expandtab
 
 set encoding=UTF-8
-set cursorline
+" set cursorline
 set nowrap "No Wrap lines
 
 set number
-" set numberwidth=5
-" set relativenumber
-
-" set smartindent
 
 " turn backup off, since most stuff is in SVN, git et.c anyway...
 set nowb
@@ -103,7 +93,7 @@ set nobackup
 " set nohlsearch
 set lazyredraw
 set scrolloff=8
-set scroll=15
+set scroll=10
 
 " always copy to clipboard
 set clipboard=unnamed

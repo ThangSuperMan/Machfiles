@@ -41,7 +41,6 @@ local servers = {
              spacing = 4,
             -- prefix = 'ÔÅ¨ '
           	 -- prefix = 'ÔÜ≤'
-
           }
       }
     )
