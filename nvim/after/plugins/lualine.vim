@@ -39,8 +39,8 @@ end
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	sections = { "error", "info" },
+	symbols = { error = " ", info = " " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
@@ -66,7 +66,8 @@ lualine.setup {
     lualine_a = {mode
     },
     lualine_b = {
-        branch
+        branch,
+        diagnostics,
     },
     lualine_c = {{
       'filename',
@@ -76,7 +77,6 @@ lualine.setup {
     }},
 
     lualine_x = {
-        diagnostics,
          -- { 'diagnostics', sources = {"nvim_diagnostic"},
          -- symbols = {error = ' ', warn = ' ', info = ' ', warn = ' '} },
          -- symbols = {error = ' ', warn = ' ', info = ' ', warn = ' '} },

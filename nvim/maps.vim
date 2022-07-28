@@ -13,6 +13,7 @@ nnoremap ; :
 " Delete from the current line to the end of a file
 nnoremap db <S-v>Gd
 
+nnoremap <C-h> :set nohlsearch<CR>
 
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
@@ -45,8 +46,12 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " Split window
-nmap ss :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
+" nmap ss :split<Return><C-w>w
+" nmap sv :vsplit<Return><C-w>w
+nnoremap ss :split<Return><C-w>w
+nnoremap sv :vsplit<Return><C-w>w
+
+nmap sc :vsplit<Return><C-w>w:vertical resize 50<CR>
 
 " Delete a word backwards and do not yank
 " nnoremap dw vb"_d
@@ -62,6 +67,14 @@ nnoremap H ^
 xnoremap H ^
 nnoremap L g_
 xnoremap L g_
+
+" ESC with kj or jk
+inoremap jk <esc>
+
+" Vim go
+nnoremap gr :GoRun<CR>
+nnoremap gt :GoAddTags<CR>
+inoremap gt :GoAddTags<CR>
 
 " Yank from current cursor position to the end of the line (make it
 " consistent with the behavior of D, C)
