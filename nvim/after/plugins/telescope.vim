@@ -1,20 +1,3 @@
-" function telescope_buffer_dir()
-"   return vim.fn.expand('%:p:h')
-" end
-
-" local telescope = require('telescope')
-" local actions = require('telescope.actions')
-
-" telescope.setup{
-"   defaults = {
-"     mappings = {
-"       n = {
-"         ["q"] = actions.close
-"       },
-"     },
-"   }
-" }
-
 lua << EOF
 
 local actions = require('telescope.actions')
@@ -68,11 +51,13 @@ require('telescope').setup {
   }
 }
 
-
 EOF
+
+nnoremap  <silent> ;t <cmd>lua require('telescope.builtin').current_buffer_tags()<cr>
 
 nnoremap  <silent> ;f <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap  <silent> ;r <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap  <silent> // <cmd>lua require('telescope.builtin').file_browser()<cr>
+" vim.keymap.set('n', '<leader>ft', '<cmd>Telescope tags<cr>')
 nnoremap <silent> ;b <cmd>Telescope buffers<cr>
 nnoremap <silent> ;; <cmd>Telescope help_tags<cr>

@@ -1,6 +1,6 @@
-nnoremap sf :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap F :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1

@@ -7,6 +7,11 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
+inoremap <C-b> <Esc>:Lex<cr>:vertical resize 30<cr>
+nnoremap <C-b> <Esc>:Lex<cr>:vertical resize 30<cr>
+
+nnoremap ,r :verticle resize 30<cr>
+
 nnoremap ; :
 
 " nmap ,a gg<S-v>G

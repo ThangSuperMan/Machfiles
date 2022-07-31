@@ -18,8 +18,8 @@ set wildmenu
 " set guicursor=n-v-c-i-sm:block
 
 " Decoration indent
-set list
-set listchars=tab:>-,space:⋅
+" set list
+" set listchars=tab:>-,space:⋅
 
 " Show the tabline when at lease two tab open
 set showtabline=1
@@ -65,11 +65,11 @@ set shiftwidth=2
 set expandtab
 
 set encoding=UTF-8
-" set cursorline
+set cursorline
 set nowrap "No Wrap lines
 
-" set number
-set relativenumber
+set number
+" set relativenumber
 " set ruler
 
 " turn backup off, since most stuff is in SVN, git et.c anyway...
