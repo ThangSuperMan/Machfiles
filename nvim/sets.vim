@@ -3,19 +3,20 @@ set nocompatible               " be iMproved
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 
+" set term=screen-256color
+
 " Searching to the sub dicrectory with find command
 set path+=**
+
+set list 
+set listchars=tab:┆·,trail:·,precedes:,extends:
 
 set wildignore+=*_build/*
 set wildignore+=**/node_modules/*
 
 set backspace=2
 
-" Nice menu when typing `:find *.py`
-" set wildmode=longest,list,full
-set wildmenu
-
-" set guicursor=n-v-c-i-sm:block
+" let &stl = " %f %m"
 
 " Decoration indent
 " set list
@@ -35,9 +36,6 @@ set cmdheight=1
 set showmatch
 
 set formatoptions-=cro
-
-" adding the space for diagnostics messages
-" set signcolumn=yes
 
 " enable your mouse
 set mouse=a
@@ -65,7 +63,7 @@ set shiftwidth=2
 set expandtab
 
 set encoding=UTF-8
-set cursorline
+" set cursorline
 set nowrap "No Wrap lines
 
 set number
@@ -77,8 +75,9 @@ set nowb
 set noswapfile
 set nobackup
 
-" set nohlsearch
+" Improve scrolling
 set lazyredraw
+
 set scrolloff=8
 " set scroll=10
 
