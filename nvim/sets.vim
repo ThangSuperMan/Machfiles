@@ -9,6 +9,7 @@ set encoding=utf-8
 set path+=**
 
 set list 
+
 set listchars=tab:┆·,trail:·,precedes:,extends:
 
 set wildignore+=*_build/*

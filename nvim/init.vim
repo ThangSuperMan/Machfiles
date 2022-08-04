@@ -56,8 +56,6 @@ let g:multi_cursor_skip_key='<C-x>'
 
 " nnoremap ,f :Neoformat<CR>
 
-" Go file config
-
 source ~/.config/nvim/sets.vim
 source ~/.config/nvim/maps.vim
 source ~/.config/nvim/after/plugins/treesitter.vim
@@ -69,8 +67,7 @@ source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/cmp.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
 source ~/.config/nvim/after/plugins/defx.vim
-source ~/.config/nvim/after/plugins/lualine-new.lua
-" source ~/.config/nvim/after/plugins/lualine.vim
+source ~/.config/nvim/after/plugins/lualine.vim
 source ~/.config/nvim/after/plugins/comment.vim
 
 
