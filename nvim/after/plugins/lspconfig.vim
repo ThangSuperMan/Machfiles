@@ -67,11 +67,15 @@ lua << EOF
 -- Setup html
       require'lspconfig'.html.setup {
             on_attach= on_attach,
-            filetypes = { "html", "jsp", "ejs", "gohtml" },
+            filetypes = { "html", "jsp", "ejs", "gohtml", "eruby" },
             capabilities = capabilities,
       }
 -- Setup html
 
+-- Ruby
+require'lspconfig'.solargraph.setup{
+    on_attach = on_attach,
+}
 
  nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -84,7 +88,7 @@ lua << EOF
           update_in_insert = false,
           -- This sets the spacing and the prefix, obviously.
           virtual_text = {
-             spacing = 4,
+             -- spacing = 4,
           	 -- prefix = ''
 
           }

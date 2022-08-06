@@ -1,7 +1,6 @@
 lua << EOF
 
-local saga = require "lspsaga"
-
+local saga = require 'lspsaga'
 
 EOF
 

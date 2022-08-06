@@ -1,11 +1,24 @@
 " Change the map leader to the ,
 let mapleader=" " "Default mapleader is \
 
+" Ruby 
+nnoremap gv :Tview<cr>
+nnoremap gm :Tmodel<cr>
+
+" Auto close tag for tpope plugin ragtag
+" imap <C-e> <C-x>
+
 " Move window
 map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
+
+nnoremap <C-j> :ciw<cr>
+
+" Auto close tag for ruby template *erb
+imap ,/ </<C-X><C-O>
+imap <silent> <C-c> </<C-X><C-O><C-X>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -22,7 +35,7 @@ vnoremap <silent> # :<C-U>
 " Save some strokes :)
 nnoremap ; :
 
-nnoremap <C-h> :set nohlsearch<CR>
+nnoremap <leader>h :set nohlsearch<CR>
 
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
@@ -53,13 +66,7 @@ xnoremap H ^
 nnoremap L g_
 xnoremap L g_
 
-" Vim go
-" nnoremap gr :GoRun<CR>
-" nnoremap gt :GoAddTags<CR>
-" inoremap gt :GoAddTags<CR>
-
-" Yank from current cursor position to the end of the line (make it
-" consistent with the behavior of D, C)
+" Yank from current cursor position to the end of the line 
 nnoremap Y y$
 
 " Jump out the curly brakets and isnert after that
@@ -85,16 +92,14 @@ nmap [ :vertical res -5<CR> " vertical decrease pane by 2
 " Copy whole text in file
 nnoremap ya :%y+<CR>
 
-" Select all
-" nmap <C-a> gg<S-v>G
 nmap ,a gg<S-v>G
 
 "-----------------------------
 " Tabs
 
 " Open current directory
-" nmap te :tabedit
-" nmap <S-Tab> :tabprev<Return>
-" nmap <Tab> :tabnext<Return>
+nmap te :tabedit
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
 
 "------------------------------

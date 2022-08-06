@@ -8,16 +8,15 @@ set encoding=utf-8
 " Searching to the sub dicrectory with find command
 set path+=**
 
-set list 
-
-set listchars=tab:┆·,trail:·,precedes:,extends:
+" set list 
+" set listchars=tab:┆·,trail:·,precedes:,extends:
 
 set wildignore+=*_build/*
 set wildignore+=**/node_modules/*
 
 set backspace=2
 
-" let &stl = " %f %m"
+set inccommand=split
 
 " Decoration indent
 " set list
@@ -29,7 +28,7 @@ set showtabline=1
 set ignorecase
 set smartcase
 
-set noshowmode " Turn off the insert mode
+" set noshowmode " Turn off the insert mode
 " set shortmess+=c
 
 set cmdheight=1
@@ -50,8 +49,6 @@ set autowrite
 set updatetime=300
 
 set t_Co=256
-
-nnoremap <silent> Q <nop>
 
 " always show statusline
 set laststatus=2
