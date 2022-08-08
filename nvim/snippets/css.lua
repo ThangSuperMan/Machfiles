@@ -14,7 +14,9 @@ local rep = require("luasnip.extras").rep
 local snippets, autosnippets = {}, {} --}}}
 
 local group = vim.api.nvim_create_augroup("Javascript Snippets", { clear = true })
-local file_pattern = "*.css,"
+local file_pattern = "*.css, *.scss"
+
+-- Layout
 
 local flex_center = s("flex-center", {
   t( "display: flex;" ),
@@ -26,6 +28,8 @@ local flex_center = s("flex-center", {
   t( "display: grid;" ),
   t( {"", "place-items: center;"} ),
 })
+
+-- Shape
 
 local circle = s(
   "circle",
@@ -41,9 +45,24 @@ local circle = s(
  )
 )
 
+local bg_gradient = s("bg-gradient", {
+  t( "background: linear-gradient(45deg, #ff216d, #2196f3);" ),
+})
+
+local abs_center = s("abs-center", {
+  t( "position: absolute;" ),
+  t({"", "top: 50%;" }),
+  t({"", "left: 50%;" }),
+  t({"", "transform: translate(-50%, -50%);" }),
+})
+
+
+
 table.insert(snippets, grid_center)
 table.insert(snippets, flex_center)
+table.insert(snippets, abs_center)
 table.insert(snippets, circle)
+table.insert(snippets, bg_gradient)
 
 -- End Refactoring --
 

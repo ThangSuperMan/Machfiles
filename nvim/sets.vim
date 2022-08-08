@@ -3,8 +3,6 @@ set nocompatible               " be iMproved
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 
-" set term=screen-256color
-
 " Searching to the sub dicrectory with find command
 set path+=**
 
@@ -15,6 +13,9 @@ set wildignore+=*_build/*
 set wildignore+=**/node_modules/*
 
 set backspace=2
+
+" Allow neovim title file adapted to the title of terminal
+set title
 
 set inccommand=split
 
@@ -28,8 +29,8 @@ set showtabline=1
 set ignorecase
 set smartcase
 
-" set noshowmode " Turn off the insert mode
-" set shortmess+=c
+set noshowmode " Turn off the insert mode
+set shortmess+=c
 
 set cmdheight=1
 
@@ -53,8 +54,7 @@ set t_Co=256
 " always show statusline
 set laststatus=2
 
-" toggle spellcheck
-nmap <silent> <leader>s :set spell!<CR>
+set timeoutlen=500
 
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -76,7 +76,7 @@ set nobackup
 " Improve scrolling
 set lazyredraw
 
-set scrolloff=8
+set scrolloff=10
 " set scroll=10
 
 " always copy to clipboard

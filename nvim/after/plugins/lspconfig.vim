@@ -59,10 +59,6 @@ lua << EOF
     }
   }
 
--- Type cheker
--- require'lspconfig'.sorbet.setup{}
-
--- Ruby
 
 -- Setup html
       require'lspconfig'.html.setup {

@@ -14,12 +14,16 @@ if has("nvim")
    Plug 'hrsh7th/cmp-buffer'
    Plug 'hrsh7th/nvim-cmp'
 
-   " Ruby 
+   " Ruby
    Plug 'tpope/vim-rails'
 
    " Snippet
    Plug 'L3MON4D3/LuaSnip'
    Plug 'saadparwaiz1/cmp_luasnip'
+
+   Plug 'Djancyp/cheat-sheet'
+
+   " Plug 'romgrk/barbar.nvim'
 
    Plug 'ldelossa/buffertag'
    Plug 'ap/vim-css-color'
@@ -29,9 +33,9 @@ if has("nvim")
    Plug 'kristijanhusak/defx-icons'
    Plug 'kristijanhusak/defx-git'
    Plug 'sainnhe/everforest'
-   Plug 'Mofiqul/dracula.nvim'
    Plug 'andrewradev/splitjoin.vim'
    Plug 'AndrewRadev/tagalong.vim'
+   Plug 'itchyny/lightline.vim'
    Plug 'AndrewRadev/sideways.vim'
    Plug 'kyazdani42/nvim-web-devicons'
    Plug 'numToStr/Comment.nvim'
@@ -48,18 +52,53 @@ if has("nvim")
 
 call plug#end()
 
+lua << EOF
+
+require("cheat-sheet").setup({
+  auto_fill = {
+    filetype = true,
+    current_word = true,
+  },
+
+  main_win = {
+    style = "minimal",
+    border = "double",
+  },
+
+  input_win = {
+    style = "minimal",
+    border = "double",
+  },
+})
+
+require('buffertag').setup({
+    -- accepts any border options that `nvim_open_win` accepts.
+    -- see ":help vim.api.nvim_open_win"
+    border = "none",
+})
+
+EOF
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'percent' ],
+      \              [ 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \ },
+      \ }
+
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
 
 let g:closetag_filenames = '*.html, *.erb, *.tsx, *.js'
-
-" My statusline
-autocmd VimEnter * hi StatusLine ctermfg=245 ctermbg=236 guifg=#f8f8f2 guibg=#323c41
-let &stl = " %f %m"
-
-" Impatent
-" lua require('impatient')
-lua require('buffertag').enable()
 
 source ~/.config/nvim/sets.vim
 source ~/.config/nvim/maps.vim
@@ -67,10 +106,9 @@ source ~/.config/nvim/after/plugins/treesitter.vim
 " source ~/.config/nvim/after/plugins/lualine.vim
 " source ~/.config/nvim/after/plugins/language-servers.vim
 source ~/.config/nvim/after/plugins/lspconfig.vim
-source ~/.config/nvim/after/plugins/lspconfig.vim
 source ~/.config/nvim/after/plugins/lspsaga.vim
 source ~/.config/nvim/after/plugins/cmp.vim
-" source ~/.config/nvim/after/plugins/luasnip.vim
+source ~/.config/nvim/after/plugins/luasnip.vim
 source ~/.config/nvim/after/plugins/lspkind.vim
 source ~/.config/nvim/after/plugins/defx.vim
 source ~/.config/nvim/after/plugins/comment.vim

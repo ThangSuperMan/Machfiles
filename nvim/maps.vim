@@ -5,9 +5,6 @@ let mapleader=" " "Default mapleader is \
 nnoremap gv :Tview<cr>
 nnoremap gm :Tmodel<cr>
 
-" Auto close tag for tpope plugin ragtag
-" imap <C-e> <C-x>
-
 " Move window
 map sh <C-w>h
 map sk <C-w>k
@@ -16,9 +13,7 @@ map sl <C-w>l
 
 nnoremap <C-j> :ciw<cr>
 
-" Auto close tag for ruby template *erb
-imap ,/ </<C-X><C-O>
-imap <silent> <C-c> </<C-X><C-O><C-X>
+nnoremap <leader>C :CheatSH<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -36,6 +31,10 @@ vnoremap <silent> # :<C-U>
 nnoremap ; :
 
 nnoremap <leader>h :set nohlsearch<CR>
+
+" toggle spellcheck
+nmap <silent> <leader>s :set spell!<CR>
+
 
 " Make windows to be basically the same size
 nnoremap <leader>= <C-w>=
