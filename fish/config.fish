@@ -32,3 +32,7 @@ alias config='export NODE_OPTIONS=--openssl-legacy-provider'
 # Go
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
+
+# Ruby 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+set -gx PATH $PATH:$HOME/.rvm/bin
